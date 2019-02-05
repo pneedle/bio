@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bio_plantae feature.
+ */
+
+include_once 'bio_plantae.features.inc';

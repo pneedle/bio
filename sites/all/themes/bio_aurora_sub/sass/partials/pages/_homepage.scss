@@ -1,0 +1,85 @@
+////////////////////////
+// Style Guide Partials
+//
+// Your Style Guide
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+//
+// All Style Guide selectors should go in here, regardless of layout or design (but separating the two in here is a good idea).
+////////////////////////
+@import 'breakpoint';
+//////////////////////////////
+// CSS Resets
+//
+// Choose your CSS Reset method:
+//  If you'd like a hard reset, uncomment `compass/reset`.
+//  If you'd prefer a soft reset, uncomment `normalize`
+//////////////////////////////
+// @import 'compass/reset';
+// @import 'normalize';
+
+///////////////////////////////
+//  HOMEPAGE
+///////////////////////////////
+.views-field-title {
+	font-family: $arial-narrow;
+	text-transform:uppercase;
+}
+
+
+div.pane-content {
+//	padding: 5px 0px 0px 5px;  // TRBL
+}
+div.view-view-frontpage {
+	background-size: contain;
+	.image-species {
+		img {
+			float: left;
+			display: inline-block;
+			height: auto;
+			vertical-align: top;
+			// max-width: 49%;
+			width: 49%;
+			margin: auto;
+			border: 2px solid $light-green;
+		}
+	}
+}
+
+div.collection-image img {
+	height: auto;
+	vertical-align: top;
+	max-width: 49%;
+	margin: auto;
+	border: 2px solid $light-green;
+}
+
+.view-view-frontpage img {
+	height: auto;
+	vertical-align: top;
+	// max-width: 49%;
+	width: 49%;
+	margin: auto;
+	border: 2px solid $light-yellow;
+}
+
+// Hyperlink-Blue: to make the Genus/Species name on the hame page always blue.
+div.views-field.views-field-title > span.field-content > a {
+	color: $hyperlink;
+}
+
+div.pane-content > div > div.view-content > div > div.views-field.views-field-nothing-1 > div > a {
+	border-radius: 10px;
+  background: $dark-blue;
+  // margin: 5px;
+  padding: 8px; 
+  // width: 200px;
+  // height: 150px; 
+
+}
+
+.click {
+	color: orange;
+	text-decoration: none;
+	text-transform: lowercase;
+}
+

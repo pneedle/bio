@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bio_animlia feature.
+ */
+
+include_once 'bio_animlia.features.inc';

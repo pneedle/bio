@@ -1,0 +1,16 @@
+{
+  "generator-drupal-theme": {
+    "projectName": "plantae-aurora-sub",
+    "projectSlug": "plantae_aurora_sub",
+    "baseTheme": "aurora",
+    "baseThemeSettings": {
+      "auroraType": "aurora"
+    },
+    "sassDir": "sass",
+    "cssDir": "css",
+    "jsDir": "js",
+    "imgDir": "img",
+    "fontsDir": "fonts",
+    "templateDir": "tpl"
+  }
+}

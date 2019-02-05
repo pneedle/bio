@@ -1,0 +1,76 @@
+@import "breakpoint";
+
+//////////////////////////////////////////////////////////////////
+// NAVIGATION
+//////////////////////////////////////////////////////////////////
+.pane-system-navigation {
+	background-color: $light-yellow;
+	border-bottom: 3px double $dark-blue;
+}
+
+ul.menu {
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 1em;
+	margin-top: 0em; // keeps menubar flush against banner
+	margin-bottom: 0em; // keeps menubar flush against banner
+	text-align: center;
+}
+
+.menu li {
+	font-family: 'Arial Narrow', Arial, sans-serif;
+	display: inline-block;
+	padding: 0em 0.25em 0em 0.25em; // top-right-bottom-left TRBL (trouble)
+	.leaf {
+		height: 90px;
+	}
+	.first.leaf {
+		padding-left: 0.5em;
+	}
+	.last.leaf {
+		padding-right: 0.5em;
+	}
+	a {
+		text-transform: uppercase;
+		text-decoration: none;
+		font-size: 80%;
+	}
+	a:link {  /* unvisited link */
+	    color: #404040;
+	    background-color: $light-yellow;
+	}
+	a:visited {  /* visited link */
+	    color: #404040;
+	    background-color: $light-green;
+	}
+	a:hover {  /* mouse over link */
+	    color: black;
+	    background-color: $light-blue;
+	}
+	a:active {  /* selected link */
+	    color: white;
+	    background-color: $violet;
+	}
+}
+
+@include breakpoint($bkpt-medium) {
+	.l-region--navigation {
+		height: 34px;
+		.menu li {
+			a {
+				font-size: 90%;
+			}
+		}
+	}
+}
+
+@include breakpoint($bkpt-large) {
+	.l-region--navigation {
+		height: 36px;
+		.menu li {
+			a {
+				font-size: 100%;
+			}
+		}
+	}
+}

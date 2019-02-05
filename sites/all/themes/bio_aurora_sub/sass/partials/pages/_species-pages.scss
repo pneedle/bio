@@ -1,0 +1,162 @@
+////////////////////////////////////////////////////////
+// Style Guide Partials
+////////////////////////////////////////////////////////
+@import 'breakpoint';
+
+////////////////////////////////////////////////////////
+// PLANTAE-FUNGI-ANIMALIA-BACTERIA SPECIES PAGES
+////////////////////////////////////////////////////////
+.panel-2col-bricks {
+	font-family: $arial-narrow;
+	.pane-node-title {
+		h2 {
+			display: none;
+		}
+		a {
+			color: $dark-blue;
+			text-transform: uppercase;
+			text-decoration: none;
+			font-weight: normal;
+			font-size: 150%;
+		}
+	}
+	div.pane-entity-field {
+		h2 {
+			display: none;
+		}
+	}
+	#mini-panel-taxonomy,
+	#mini-panel-clone_of_taxonomy,
+	#mini-panel-animalia_taxonomy,
+	#mini-panel-bacteria_taxonomy,
+	#mini-panel-identifying_features {
+		padding-bottom: 7px;
+		.field-label {
+			font-size: 90%;
+			font-weight: normal;
+		}
+		.field-items {
+			text-transform: uppercase;
+			color: blue;
+			a {
+//				text-decoration: none; 
+			}
+		}
+	}
+	.pane-taxonomy,
+	.pane-therapeutic,
+	.pane-identifying-fetures,
+	.pane-node-field-animalia-video,
+	.pane-node-field-species-image-animalia {
+		width: 100%;
+		float: left;
+	}
+	.wikipedia {
+		background-color: $light-green;
+		padding: 7px;
+		width: 100%;
+	}
+	#citations {
+		background-color: $light-yellow;
+		padding: 7px;
+		margin-top: 8px;
+	}
+	div.panel-pane.pane-entity-field.pane-node-body.species-body {
+		background-color: $light-purple;
+		.stamp {
+			display: none;
+		}
+	}
+	#species_image img {
+		border: 2px solid $light-green;
+		float: left;
+		margin-top: 0.25em;
+	}
+	.pane-node-body {
+		clear: both;
+	}
+	.stamp {
+		clear: both;
+		float: right;
+		background-color: $light-blue;
+		width: 100%;
+		padding-left: 7px;
+		padding-right: 7px;
+		.pane-node-field-stamp-image {
+			padding-bottom: 0px;
+		}
+		.pane-node-field-issue-date {
+			padding-bottom: 0px;
+		}
+		.pane-node-field-country-issued {
+			padding-top: 0px;
+		}
+	}
+	#stamp-image {
+		clear: inherit;
+		width: 100%;
+		img {
+		width: 100%;
+		height: 100%;
+		}
+	}
+	// edit link - only for admin ///////// 
+	div.pane-custom { 
+		float: left;
+		clear: both;
+		margin-bottom: 7px;
+	}
+	div.panel-pane.pane-panels-mini.pane-therapeutic > h2,
+	div.panel-pane.pane-panels-mini.pane-clone-of-taxonomy > h2,
+	div.panel-pane.pane-panels-mini.pane-identifying-features > h2,
+	div.panel-pane.pane-panels-mini.pane-taxonomy > h2 {
+		font-weight: normal;
+	}
+	.artwork img {
+		float: left;
+	}
+	.panel-col-middle {
+		padding-top: 7px;
+	}
+
+////////////////////////////////////////////////////////
+// MAX-WIDTH 600PX - mobile
+////////////////////////////////////////////////////////
+	@media only screen and (max-width: 600px) {
+		div.pane-taxonomy,          // plantae
+		div.pane-animalia-taxonomy, // animalia
+		div.pane-bacteria-taxonomy, // bacteria
+		div.pane-clone-of-taxonomy, // fungi
+		div.pane-identifying-features,
+		div.pane-therapeutic {
+			background-color: $light-yellow;
+			border: 2px solid $light-blue;
+			float: left;
+			width: 100%;
+			font-size: 90%;
+			clear: both;
+			margin-bottom: 7px;
+		}
+	}
+}
+////////////////////////////////////////////////////////
+// MIN-WIDTH 601PX - DESKTOP
+////////////////////////////////////////////////////////
+.panel-2col-bricks {
+	@media only screen and (min-width: 601px) {
+		div.pane-taxonomy,          // plantae
+		div.pane-animalia-taxonomy, // animalia
+		div.pane-bacteria-taxonomy, // bacteria
+		div.pane-clone-of-taxonomy, // fungi
+		div.pane-identifying-features,
+		div.pane-therapeutic {
+			background-color: $light-yellow;
+			border: 2px solid $light-blue;
+			float: left;
+			width: 100%;
+			font-size: 100%;
+			clear: both;
+			margin-bottom: 7px;
+		}
+	}
+}

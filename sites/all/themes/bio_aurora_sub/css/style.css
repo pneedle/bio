@@ -1,0 +1,1348 @@
+html {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+embed,
+img,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.pane-node-field-image img {
+  float: left;
+  margin-right: 1.0em;
+  background: rgba(244, 244, 135, 0.2);
+}
+
+.pane-node-body {
+  clear: unset;
+  background: rgba(146, 198, 222, 0.2);
+  padding: 1px 1.0em 0.0em 7px;
+}
+
+.view-articles img {
+  min-width: 50px;
+}
+
+#glossary-list .views-field-body p {
+  color: #341c2c;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  #glossary-list .views-field-body {
+    font-size: 70%;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  #glossary-list .views-field-body {
+    font-size: 80%;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  #glossary-list .views-field-body {
+    font-size: 90%;
+  }
+}
+@media (min-width: 990px) {
+  #glossary-list .views-field-body {
+    font-size: 100%;
+  }
+}
+
+#glossary-page {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+#glossary-page div.panel-pane.pane-page-title h1 {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+#glossary-page .pane-node-body {
+  background-color: rgba(163, 219, 122, 0.2);
+  padding: 8px;
+}
+
+.views-field-title {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+}
+
+div.view-view-frontpage {
+  background-size: contain;
+}
+div.view-view-frontpage .image-species img {
+  float: left;
+  display: inline-block;
+  height: auto;
+  vertical-align: top;
+  width: 49%;
+  margin: auto;
+  border: 2px solid rgba(163, 219, 122, 0.2);
+}
+
+div.collection-image img {
+  height: auto;
+  vertical-align: top;
+  max-width: 49%;
+  margin: auto;
+  border: 2px solid rgba(163, 219, 122, 0.2);
+}
+
+.view-view-frontpage img {
+  height: auto;
+  vertical-align: top;
+  width: 49%;
+  margin: auto;
+  border: 2px solid rgba(244, 244, 135, 0.2);
+}
+
+div.views-field.views-field-title > span.field-content > a {
+  color: #0000ee;
+}
+
+div.pane-content > div > div.view-content > div > div.views-field.views-field-nothing-1 > div > a {
+  border-radius: 10px;
+  background: #92c6de;
+  padding: 8px;
+}
+
+.click {
+  color: orange;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.aurora-section-third h2,
+.kpcofg-title h1 {
+  margin-top: 0px;
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .aurora-section-third h2,
+  .kpcofg-title h1 {
+    font-size: 85%;
+    width: inherit;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .aurora-section-third h2,
+  .kpcofg-title h1 {
+    font-size: 90%;
+    width: inherit;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .aurora-section-third h2,
+  .kpcofg-title h1 {
+    font-size: 95%;
+    width: inherit;
+  }
+}
+@media (min-width: 990px) {
+  .aurora-section-third h2,
+  .kpcofg-title h1 {
+    font-size: 100%;
+    width: inherit;
+  }
+}
+
+th.views-field.views-field-title.active a,
+th.views-field.views-field-title a,
+td.views-field.views-field-title.active a {
+  text-decoration: none;
+  color: #341c2c;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.pane-taxonomy-term-description {
+  background-color: rgba(163, 219, 122, 0.2);
+}
+
+.views-field-field-species-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.taxonomy-term-description {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-align: justify;
+  padding: 7px;
+}
+.taxonomy-term-description a {
+  color: #92c6de;
+  text-decoration: none;
+  padding-left: 7px;
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .taxonomy-term-description {
+    font-size: 70%;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .taxonomy-term-description {
+    font-size: 80%;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .taxonomy-term-description {
+    font-size: 90%;
+  }
+}
+@media (min-width: 990px) {
+  .taxonomy-term-description {
+    font-size: 100%;
+  }
+}
+.taxonomy-term-description strong {
+  font-weight: inherit;
+  text-transform: uppercase;
+}
+.taxonomy-term-description p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#kpcofg #taxonomy-title span {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  background-color: rgba(244, 244, 135, 0.2);
+}
+
+#kpcofg td.views-field.views-field-nothing,
+#kpcofg .views-field-body {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#kpcofg td.views-field.views-field-nothing p,
+#kpcofg .views-field-body p {
+  color: #341c2c;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  #kpcofg td.views-field.views-field-nothing,
+  #kpcofg .views-field-body {
+    font-size: 70%;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  #kpcofg td.views-field.views-field-nothing,
+  #kpcofg .views-field-body {
+    font-size: 80%;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  #kpcofg td.views-field.views-field-nothing,
+  #kpcofg .views-field-body {
+    font-size: 90%;
+  }
+}
+@media (min-width: 990px) {
+  #kpcofg td.views-field.views-field-nothing,
+  #kpcofg .views-field-body {
+    font-size: 100%;
+  }
+}
+
+td.views-field.views-field-nothing > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#kpcofg td.views-field.views-field-body {
+  width: 90%;
+}
+#kpcofg td.views-field.views-field-body p.rtejustify {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+#kpcofg td.views-field.views-field-field-species-image,
+#kpcofg td.views-field.views-field-field-species-image-bacteria,
+#kpcofg td.views-field.views-field-field-species-image-animalia-1,
+#kpcofg td.views-field.views-field-field-image-species-fungal {
+  width: 20%;
+}
+
+#kpcofg th.views-field.views-field-field-image.views-field-field-image {
+  display: none;
+}
+
+#kpcofg .panels-flexible-region-inside {
+  padding-left: 0;
+}
+
+.view-content {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+
+#facetapi-facet-search-apiflora-block-field-therapeuticname,
+#facetapi-facet-search-apiflora-block-field-kingdom,
+#facetapi-facet-search-apiflora-block-field-subkingdom,
+#facetapi-facet-search-apiflora-block-field-phylum,
+#facetapi-facet-search-apiflora-block-field-superdivision,
+#facetapi-facet-search-apiflora-block-field-class,
+#facetapi-facet-search-apiflora-block-field-subclass,
+#facetapi-facet-search-apiflora-block-field-order,
+#facetapi-facet-search-apiflora-block-field-family,
+#facetapi-facet-search-apiflora-block-field-genus,
+#facetapi-facet-search-apiflora-block-field-tags,
+#facetapi-facet-search-apiflora-block-field-margin-id,
+#facetapi-facet-search-apiflora-block-field-shape-id,
+#facetapi-facet-search-apiflora-block-field-needles,
+.facetapr-processed {
+  padding-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+#facetapi-facet-search-apiflora-block-field-therapeuticname ul,
+#facetapi-facet-search-apiflora-block-field-kingdom ul,
+#facetapi-facet-search-apiflora-block-field-subkingdom ul,
+#facetapi-facet-search-apiflora-block-field-phylum ul,
+#facetapi-facet-search-apiflora-block-field-superdivision ul,
+#facetapi-facet-search-apiflora-block-field-class ul,
+#facetapi-facet-search-apiflora-block-field-subclass ul,
+#facetapi-facet-search-apiflora-block-field-order ul,
+#facetapi-facet-search-apiflora-block-field-family ul,
+#facetapi-facet-search-apiflora-block-field-genus ul,
+#facetapi-facet-search-apiflora-block-field-tags ul,
+#facetapi-facet-search-apiflora-block-field-margin-id ul,
+#facetapi-facet-search-apiflora-block-field-shape-id ul,
+#facetapi-facet-search-apiflora-block-field-needles ul,
+.facetapr-processed ul {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apiflora-block-field-therapeuticname li,
+#facetapi-facet-search-apiflora-block-field-kingdom li,
+#facetapi-facet-search-apiflora-block-field-subkingdom li,
+#facetapi-facet-search-apiflora-block-field-phylum li,
+#facetapi-facet-search-apiflora-block-field-superdivision li,
+#facetapi-facet-search-apiflora-block-field-class li,
+#facetapi-facet-search-apiflora-block-field-subclass li,
+#facetapi-facet-search-apiflora-block-field-order li,
+#facetapi-facet-search-apiflora-block-field-family li,
+#facetapi-facet-search-apiflora-block-field-genus li,
+#facetapi-facet-search-apiflora-block-field-tags li,
+#facetapi-facet-search-apiflora-block-field-margin-id li,
+#facetapi-facet-search-apiflora-block-field-shape-id li,
+#facetapi-facet-search-apiflora-block-field-needles li,
+.facetapr-processed li {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apiflora-block-field-therapeuticname a,
+#facetapi-facet-search-apiflora-block-field-kingdom a,
+#facetapi-facet-search-apiflora-block-field-subkingdom a,
+#facetapi-facet-search-apiflora-block-field-phylum a,
+#facetapi-facet-search-apiflora-block-field-superdivision a,
+#facetapi-facet-search-apiflora-block-field-class a,
+#facetapi-facet-search-apiflora-block-field-subclass a,
+#facetapi-facet-search-apiflora-block-field-order a,
+#facetapi-facet-search-apiflora-block-field-family a,
+#facetapi-facet-search-apiflora-block-field-genus a,
+#facetapi-facet-search-apiflora-block-field-tags a,
+#facetapi-facet-search-apiflora-block-field-margin-id a,
+#facetapi-facet-search-apiflora-block-field-shape-id a,
+#facetapi-facet-search-apiflora-block-field-needles a,
+.facetapr-processed a {
+  text-decoration: none;
+  color: #341c2c;
+}
+
+#facetapi-facet-search-apifungi-block-field-kingdom,
+#facetapi-facet-search-apifungi-block-field-subkingdom,
+#facetapi-facet-search-apifungi-block-field-division-fungi,
+#facetapi-facet-search-apifungi-block-field-class-fungi,
+#facetapi-facet-search-apifungi-block-field-order-fungi,
+#facetapi-facet-search-apifungi-block-field-family-fungi,
+#facetapi-facet-search-apifungi-block-field-genus-fungi {
+  padding-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+#facetapi-facet-search-apifungi-block-field-kingdom ul,
+#facetapi-facet-search-apifungi-block-field-subkingdom ul,
+#facetapi-facet-search-apifungi-block-field-division-fungi ul,
+#facetapi-facet-search-apifungi-block-field-class-fungi ul,
+#facetapi-facet-search-apifungi-block-field-order-fungi ul,
+#facetapi-facet-search-apifungi-block-field-family-fungi ul,
+#facetapi-facet-search-apifungi-block-field-genus-fungi ul {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apifungi-block-field-kingdom li,
+#facetapi-facet-search-apifungi-block-field-subkingdom li,
+#facetapi-facet-search-apifungi-block-field-division-fungi li,
+#facetapi-facet-search-apifungi-block-field-class-fungi li,
+#facetapi-facet-search-apifungi-block-field-order-fungi li,
+#facetapi-facet-search-apifungi-block-field-family-fungi li,
+#facetapi-facet-search-apifungi-block-field-genus-fungi li {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apifungi-block-field-kingdom a,
+#facetapi-facet-search-apifungi-block-field-subkingdom a,
+#facetapi-facet-search-apifungi-block-field-division-fungi a,
+#facetapi-facet-search-apifungi-block-field-class-fungi a,
+#facetapi-facet-search-apifungi-block-field-order-fungi a,
+#facetapi-facet-search-apifungi-block-field-family-fungi a,
+#facetapi-facet-search-apifungi-block-field-genus-fungi a {
+  text-decoration: none;
+  color: #341c2c;
+}
+
+#facetapi-facet-search-apianimalia-block-field-kingdom,
+#facetapi-facet-search-apianimalia-block-field-division-animalia,
+#facetapi-facet-search-apianimalia-block-field-subphylum-animalia,
+#facetapi-facet-search-apianimalia-block-field-class-animalia,
+#facetapi-facet-search-apianimalia-block-field-order-animalia,
+#facetapi-facet-search-apianimalia-block-field-suborder-animalia,
+#facetapi-facet-search-apianimalia-block-field-family-animalia,
+#facetapi-facet-search-apianimalia-block-field-genus-animalia {
+  padding-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+#facetapi-facet-search-apianimalia-block-field-kingdom ul,
+#facetapi-facet-search-apianimalia-block-field-division-animalia ul,
+#facetapi-facet-search-apianimalia-block-field-subphylum-animalia ul,
+#facetapi-facet-search-apianimalia-block-field-class-animalia ul,
+#facetapi-facet-search-apianimalia-block-field-order-animalia ul,
+#facetapi-facet-search-apianimalia-block-field-suborder-animalia ul,
+#facetapi-facet-search-apianimalia-block-field-family-animalia ul,
+#facetapi-facet-search-apianimalia-block-field-genus-animalia ul {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apianimalia-block-field-kingdom li,
+#facetapi-facet-search-apianimalia-block-field-division-animalia li,
+#facetapi-facet-search-apianimalia-block-field-subphylum-animalia li,
+#facetapi-facet-search-apianimalia-block-field-class-animalia li,
+#facetapi-facet-search-apianimalia-block-field-order-animalia li,
+#facetapi-facet-search-apianimalia-block-field-suborder-animalia li,
+#facetapi-facet-search-apianimalia-block-field-family-animalia li,
+#facetapi-facet-search-apianimalia-block-field-genus-animalia li {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apianimalia-block-field-kingdom a,
+#facetapi-facet-search-apianimalia-block-field-division-animalia a,
+#facetapi-facet-search-apianimalia-block-field-subphylum-animalia a,
+#facetapi-facet-search-apianimalia-block-field-class-animalia a,
+#facetapi-facet-search-apianimalia-block-field-order-animalia a,
+#facetapi-facet-search-apianimalia-block-field-suborder-animalia a,
+#facetapi-facet-search-apianimalia-block-field-family-animalia a,
+#facetapi-facet-search-apianimalia-block-field-genus-animalia a {
+  text-decoration: none;
+  color: #341c2c;
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+
+#facetapi-facet-search-apibacteria-block-field-kingdom,
+#facetapi-facet-search-apibacteria-block-field-phylum-bacteria,
+#facetapi-facet-search-apibacteria-block-field-class-bacteria,
+#facetapi-facet-search-apibacteria-block-field-order-bacteria,
+#facetapi-facet-search-apibacteria-block-field-family-bacteria,
+#facetapi-facet-search-apibacteria-block-field-genus-bacteria {
+  padding-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+#facetapi-facet-search-apibacteria-block-field-kingdom ul,
+#facetapi-facet-search-apibacteria-block-field-phylum-bacteria ul,
+#facetapi-facet-search-apibacteria-block-field-class-bacteria ul,
+#facetapi-facet-search-apibacteria-block-field-order-bacteria ul,
+#facetapi-facet-search-apibacteria-block-field-family-bacteria ul,
+#facetapi-facet-search-apibacteria-block-field-genus-bacteria ul {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apibacteria-block-field-kingdom li,
+#facetapi-facet-search-apibacteria-block-field-phylum-bacteria li,
+#facetapi-facet-search-apibacteria-block-field-class-bacteria li,
+#facetapi-facet-search-apibacteria-block-field-order-bacteria li,
+#facetapi-facet-search-apibacteria-block-field-family-bacteria li,
+#facetapi-facet-search-apibacteria-block-field-genus-bacteria li {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apibacteria-block-field-kingdom a,
+#facetapi-facet-search-apibacteria-block-field-phylum-bacteria a,
+#facetapi-facet-search-apibacteria-block-field-class-bacteria a,
+#facetapi-facet-search-apibacteria-block-field-order-bacteria a,
+#facetapi-facet-search-apibacteria-block-field-family-bacteria a,
+#facetapi-facet-search-apibacteria-block-field-genus-bacteria a {
+  text-decoration: none;
+  color: #341c2c;
+}
+
+#facetapi-facet-search-apicountry-block-field-stamp-country-issued,
+#facetapi-facet-search-apicountry-block-field-issue-date {
+  padding-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+#facetapi-facet-search-apicountry-block-field-stamp-country-issued ul,
+#facetapi-facet-search-apicountry-block-field-issue-date ul {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apicountry-block-field-stamp-country-issued li,
+#facetapi-facet-search-apicountry-block-field-issue-date li {
+  list-style-type: none;
+  list-style: none;
+}
+#facetapi-facet-search-apicountry-block-field-stamp-country-issued a,
+#facetapi-facet-search-apicountry-block-field-stamp-country-issued h2,
+#facetapi-facet-search-apicountry-block-field-issue-date a,
+#facetapi-facet-search-apicountry-block-field-issue-date h2 {
+  text-decoration: none;
+  color: #341c2c;
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+
+#issue-date {
+  clear: both;
+}
+
+/*
+.pane-block {
+	padding-top: 1.0em;
+}
+
+#issue-date {
+	clear: both;
+}
+
+#country > div.pane-content > a,
+#issue-date > div.pane-content > a {
+	display: inherit; 
+}
+*/
+.pane-plant-list-kpcofgs,
+.pane-fungi-list-kpcofgs,
+.pane-bacteria-list-kpcofgs,
+.pane-animal-list-kpcofgs,
+.pane-stamp-mini-panel
+ {
+  background-color: rgba(163, 219, 122, 0.2);
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  float: left;
+  border: 2px solid rgba(146, 198, 222, 0.2);
+}
+.pane-plant-list-kpcofgs h2.pane-title,
+.pane-fungi-list-kpcofgs h2.pane-title,
+.pane-bacteria-list-kpcofgs h2.pane-title,
+.pane-animal-list-kpcofgs h2.pane-title,
+.pane-stamp-mini-panel
+h2.pane-title {
+  display: unset;
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  padding-top: 5px;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .pane-plant-list-kpcofgs,
+  .pane-fungi-list-kpcofgs,
+  .pane-bacteria-list-kpcofgs,
+  .pane-animal-list-kpcofgs,
+  .pane-stamp-mini-panel
+   {
+    font-size: 75%;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .pane-plant-list-kpcofgs,
+  .pane-fungi-list-kpcofgs,
+  .pane-bacteria-list-kpcofgs,
+  .pane-animal-list-kpcofgs,
+  .pane-stamp-mini-panel
+   {
+    font-size: 90%;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .pane-plant-list-kpcofgs,
+  .pane-fungi-list-kpcofgs,
+  .pane-bacteria-list-kpcofgs,
+  .pane-animal-list-kpcofgs,
+  .pane-stamp-mini-panel
+   {
+    font-size: 95%;
+  }
+}
+@media (min-width: 990px) {
+  .pane-plant-list-kpcofgs,
+  .pane-fungi-list-kpcofgs,
+  .pane-bacteria-list-kpcofgs,
+  .pane-animal-list-kpcofgs,
+  .pane-stamp-mini-panel
+   {
+    font-size: 100%;
+  }
+}
+
+th.views-field {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.aurora-section-third {
+  background: white;
+  float: left;
+}
+.aurora-section-third h2.pane-title {
+  font-size: 110%;
+  padding-left: 7px;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .aurora-section-third .pane-animalia-list-panel-pane-4,
+  .aurora-section-third .pane-bacteria-list-panel-pane-3,
+  .aurora-section-third .pane-flora-sort-panel-pane-4,
+  .aurora-section-third .pane-fungi-panel-pane-3 {
+    display: initial;
+  }
+  .aurora-section-third .pane-animalia-list-panel-pane-4 .views-table,
+  .aurora-section-third .pane-bacteria-list-panel-pane-3 .views-table,
+  .aurora-section-third .pane-flora-sort-panel-pane-4 .views-table,
+  .aurora-section-third .pane-fungi-panel-pane-3 .views-table {
+    font-size: 75%;
+  }
+  .aurora-section-third .pane-animalia-list-panel-pane-1,
+  .aurora-section-third .pane-animalia-list-panel-pane-2,
+  .aurora-section-third .pane-animalia-list-panel-pane-3,
+  .aurora-section-third .pane-bacteria-list-panel-pane-1,
+  .aurora-section-third .pane-bacteria-list-panel-pane-2,
+  .aurora-section-third .pane-flora-sort-panel-pane-1,
+  .aurora-section-third .pane-flora-sort-panel-pane-2,
+  .aurora-section-third .pane-flora-sort-panel-pane-3,
+  .aurora-section-third .pane-fungi-panel-pane-1,
+  .aurora-section-third .pane-fungi-panel-pane-2 {
+    display: none;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .aurora-section-third .pane-animalia-list-panel-pane-1,
+  .aurora-section-third .pane-bacteria-list-panel-pane-3,
+  .aurora-section-third .pane-flora-sort-panel-pane-2,
+  .aurora-section-third .pane-fungi-panel-pane-3 {
+    display: initial;
+  }
+  .aurora-section-third .pane-animalia-list-panel-pane-1 .views-table,
+  .aurora-section-third .pane-animalia-list-panel-pane-1 .views-field-title,
+  .aurora-section-third .pane-bacteria-list-panel-pane-3 .views-table,
+  .aurora-section-third .pane-bacteria-list-panel-pane-3 .views-field-title,
+  .aurora-section-third .pane-flora-sort-panel-pane-2 .views-table,
+  .aurora-section-third .pane-flora-sort-panel-pane-2 .views-field-title,
+  .aurora-section-third .pane-fungi-panel-pane-3 .views-table,
+  .aurora-section-third .pane-fungi-panel-pane-3 .views-field-title {
+    font-size: 90%;
+  }
+  .aurora-section-third .pane-animalia-list-panel-pane-2,
+  .aurora-section-third .pane-animalia-list-panel-pane-3,
+  .aurora-section-third .pane-animalia-list-panel-pane-4,
+  .aurora-section-third .pane-bacteria-list-panel-pane-1,
+  .aurora-section-third .pane-bacteria-list-panel-pane-2,
+  .aurora-section-third .pane-flora-sort-panel-pane-1,
+  .aurora-section-third .pane-flora-sort-panel-pane-3,
+  .aurora-section-third .pane-flora-sort-panel-pane-4,
+  .aurora-section-third .pane-fungi-panel-pane-1,
+  .aurora-section-third .pane-fungi-panel-pane-2 {
+    display: none;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .aurora-section-third .pane-animalia-list-panel-pane-2,
+  .aurora-section-third .pane-bacteria-list-panel-pane-2,
+  .aurora-section-third .pane-flora-sort-panel-pane-3,
+  .aurora-section-third .pane-fungi-panel-pane-2 {
+    display: initial;
+  }
+  .aurora-section-third .pane-animalia-list-panel-pane-2 .views-table,
+  .aurora-section-third .pane-bacteria-list-panel-pane-2 .views-table,
+  .aurora-section-third .pane-flora-sort-panel-pane-3 .views-table,
+  .aurora-section-third .pane-fungi-panel-pane-2 .views-table {
+    font-size: 95%;
+  }
+  .aurora-section-third .pane-animalia-list-panel-pane-1,
+  .aurora-section-third .pane-animalia-list-panel-pane-3,
+  .aurora-section-third .pane-animalia-list-panel-pane-4,
+  .aurora-section-third .pane-bacteria-list-panel-pane-1,
+  .aurora-section-third .pane-bacteria-list-panel-pane-3,
+  .aurora-section-third .pane-flora-sort-panel-pane-1,
+  .aurora-section-third .pane-flora-sort-panel-pane-2,
+  .aurora-section-third .pane-flora-sort-panel-pane-4,
+  .aurora-section-third .pane-fungi-panel-pane-1,
+  .aurora-section-third .pane-fungi-panel-pane-3 {
+    display: none;
+  }
+}
+@media (min-width: 990px) {
+  .aurora-section-third .pane-animalia-list-panel-pane-3,
+  .aurora-section-third .pane-bacteria-list-panel-pane-1,
+  .aurora-section-third .pane-flora-sort-panel-pane-1,
+  .aurora-section-third .pane-fungi-panel-pane-1 {
+    display: initial;
+  }
+  .aurora-section-third .pane-animalia-list-panel-pane-3 .views-table,
+  .aurora-section-third .pane-bacteria-list-panel-pane-1 .views-table,
+  .aurora-section-third .pane-flora-sort-panel-pane-1 .views-table,
+  .aurora-section-third .pane-fungi-panel-pane-1 .views-table {
+    font-size: 100%;
+  }
+  .aurora-section-third .pane-animalia-list-panel-pane-1,
+  .aurora-section-third .pane-animalia-list-panel-pane-2,
+  .aurora-section-third .pane-animalia-list-panel-pane-4,
+  .aurora-section-third .pane-bacteria-list-panel-pane-2,
+  .aurora-section-third .pane-bacteria-list-panel-pane-3,
+  .aurora-section-third .pane-flora-sort-panel-pane-2,
+  .aurora-section-third .pane-flora-sort-panel-pane-3,
+  .aurora-section-third .pane-flora-sort-panel-pane-4,
+  .aurora-section-third .pane-fungi-panel-pane-2,
+  .aurora-section-third .pane-fungi-panel-pane-3 {
+    display: none;
+  }
+}
+
+.plant-id {
+  background-color: rgba(163, 219, 122, 0.2);
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  float: left;
+  border: 2px solid rgba(146, 198, 222, 0.2);
+  text-transform: uppercase;
+}
+.plant-id #facetapi-facet-search-apiflora-block-field-margin-id,
+.plant-id #facetapi-facet-search-apiflora-block-field-thorns {
+  padding-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.plant-id #facetapi-facet-search-apiflora-block-field-margin-id ul,
+.plant-id #facetapi-facet-search-apiflora-block-field-thorns ul {
+  list-style-type: none;
+  list-style: none;
+}
+.plant-id #facetapi-facet-search-apiflora-block-field-margin-id li,
+.plant-id #facetapi-facet-search-apiflora-block-field-thorns li {
+  list-style-type: none;
+  list-style: none;
+}
+.plant-id #facetapi-facet-search-apiflora-block-field-margin-id a,
+.plant-id #facetapi-facet-search-apiflora-block-field-thorns a {
+  text-decoration: none;
+  color: #341c2c;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .plant-id {
+    font-size: 80%;
+    width: 115px;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .plant-id {
+    font-size: 85%;
+    width: 125px;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .plant-id {
+    font-size: 90%;
+    width: 145px;
+  }
+}
+@media (min-width: 990px) {
+  .plant-id {
+    font-size: 100%;
+    width: 145px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 544px) {
+  .pane-identification-flora {
+    font-size: 80%;
+    margin-left: -7em;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .pane-identification-flora {
+    font-size: 90%;
+    margin-left: -5.5em;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .pane-identification-flora {
+    font-size: 95%;
+    margin-left: -3.5em;
+  }
+}
+@media (min-width: 990px) {
+  .pane-identification-flora {
+    font-size: 100%;
+    margin-left: -3.5em;
+  }
+}
+
+h2.pane-title {
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.flora-id-pane {
+  background-color: rgba(146, 198, 222, 0.2);
+}
+.flora-id-pane th.views-field,
+.flora-id-pane .pane-title {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.attachment {
+  margin-bottom: 1.0em;
+}
+
+#plantae-id > div > div.panels-flexible-row.panels-flexible-row-38-5.clearfix.Footer > div > div.panels-flexible-row-38-5-middle > div > div > div > div > div > div > table {
+  width: 100%;
+}
+
+.plantae-id-content-pane ul {
+  list-style-type: none;
+  display: flex;
+  padding-left: 5px;
+  margin-top: 3px;
+}
+.plantae-id-content-pane ul li {
+  padding: 5px;
+}
+
+.panel-2col-bricks {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+.panel-2col-bricks .pane-node-title h2 {
+  display: none;
+}
+.panel-2col-bricks .pane-node-title a {
+  color: #92c6de;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 150%;
+}
+.panel-2col-bricks div.pane-entity-field h2 {
+  display: none;
+}
+.panel-2col-bricks #mini-panel-taxonomy,
+.panel-2col-bricks #mini-panel-clone_of_taxonomy,
+.panel-2col-bricks #mini-panel-animalia_taxonomy,
+.panel-2col-bricks #mini-panel-bacteria_taxonomy,
+.panel-2col-bricks #mini-panel-identifying_features {
+  padding-bottom: 7px;
+}
+.panel-2col-bricks #mini-panel-taxonomy .field-label,
+.panel-2col-bricks #mini-panel-clone_of_taxonomy .field-label,
+.panel-2col-bricks #mini-panel-animalia_taxonomy .field-label,
+.panel-2col-bricks #mini-panel-bacteria_taxonomy .field-label,
+.panel-2col-bricks #mini-panel-identifying_features .field-label {
+  font-size: 90%;
+  font-weight: normal;
+}
+.panel-2col-bricks #mini-panel-taxonomy .field-items,
+.panel-2col-bricks #mini-panel-clone_of_taxonomy .field-items,
+.panel-2col-bricks #mini-panel-animalia_taxonomy .field-items,
+.panel-2col-bricks #mini-panel-bacteria_taxonomy .field-items,
+.panel-2col-bricks #mini-panel-identifying_features .field-items {
+  text-transform: uppercase;
+  color: blue;
+}
+.panel-2col-bricks .pane-taxonomy,
+.panel-2col-bricks .pane-therapeutic,
+.panel-2col-bricks .pane-identifying-fetures,
+.panel-2col-bricks .pane-node-field-animalia-video,
+.panel-2col-bricks .pane-node-field-species-image-animalia {
+  width: 100%;
+  float: left;
+}
+.panel-2col-bricks .wikipedia {
+  background-color: rgba(163, 219, 122, 0.2);
+  padding: 7px;
+  width: 100%;
+}
+.panel-2col-bricks #citations {
+  background-color: rgba(244, 244, 135, 0.2);
+  padding: 7px;
+  margin-top: 8px;
+}
+.panel-2col-bricks div.panel-pane.pane-entity-field.pane-node-body.species-body {
+  background-color: rgba(52, 28, 44, 0.1);
+}
+.panel-2col-bricks div.panel-pane.pane-entity-field.pane-node-body.species-body .stamp {
+  display: none;
+}
+.panel-2col-bricks #species_image img {
+  border: 2px solid rgba(163, 219, 122, 0.2);
+  float: left;
+  margin-top: 0.25em;
+}
+.panel-2col-bricks .pane-node-body {
+  clear: both;
+}
+.panel-2col-bricks .stamp {
+  clear: both;
+  float: right;
+  background-color: rgba(146, 198, 222, 0.2);
+  width: 100%;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.panel-2col-bricks .stamp .pane-node-field-stamp-image {
+  padding-bottom: 0px;
+}
+.panel-2col-bricks .stamp .pane-node-field-issue-date {
+  padding-bottom: 0px;
+}
+.panel-2col-bricks .stamp .pane-node-field-country-issued {
+  padding-top: 0px;
+}
+.panel-2col-bricks #stamp-image {
+  clear: inherit;
+  width: 100%;
+}
+.panel-2col-bricks #stamp-image img {
+  width: 100%;
+  height: 100%;
+}
+.panel-2col-bricks div.pane-custom {
+  float: left;
+  clear: both;
+  margin-bottom: 7px;
+}
+.panel-2col-bricks div.panel-pane.pane-panels-mini.pane-therapeutic > h2,
+.panel-2col-bricks div.panel-pane.pane-panels-mini.pane-clone-of-taxonomy > h2,
+.panel-2col-bricks div.panel-pane.pane-panels-mini.pane-identifying-features > h2,
+.panel-2col-bricks div.panel-pane.pane-panels-mini.pane-taxonomy > h2 {
+  font-weight: normal;
+}
+.panel-2col-bricks .artwork img {
+  float: left;
+}
+.panel-2col-bricks .panel-col-middle {
+  padding-top: 7px;
+}
+@media only screen and (max-width: 600px) {
+  .panel-2col-bricks div.pane-taxonomy,
+  .panel-2col-bricks div.pane-animalia-taxonomy,
+  .panel-2col-bricks div.pane-bacteria-taxonomy,
+  .panel-2col-bricks div.pane-clone-of-taxonomy,
+  .panel-2col-bricks div.pane-identifying-features,
+  .panel-2col-bricks div.pane-therapeutic {
+    background-color: rgba(244, 244, 135, 0.2);
+    border: 2px solid rgba(146, 198, 222, 0.2);
+    float: left;
+    width: 100%;
+    font-size: 90%;
+    clear: both;
+    margin-bottom: 7px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .panel-2col-bricks div.pane-taxonomy,
+  .panel-2col-bricks div.pane-animalia-taxonomy,
+  .panel-2col-bricks div.pane-bacteria-taxonomy,
+  .panel-2col-bricks div.pane-clone-of-taxonomy,
+  .panel-2col-bricks div.pane-identifying-features,
+  .panel-2col-bricks div.pane-therapeutic {
+    background-color: rgba(244, 244, 135, 0.2);
+    border: 2px solid rgba(146, 198, 222, 0.2);
+    float: left;
+    width: 100%;
+    font-size: 100%;
+    clear: both;
+    margin-bottom: 7px;
+  }
+}
+
+#country-stamp-list {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+#country-stamp-list .page-taxonomy-term .therapeutic-flora,
+#country-stamp-list .page-taxonomy-term .therapeutic-content {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  float: left;
+  clear: both;
+  margin-top: 1.0em;
+}
+#country-stamp-list .page-taxonomy-term .therapeutic-content {
+  background-color: rgba(244, 244, 135, 0.2);
+}
+#country-stamp-list .country-stamp-right-pane {
+  background-color: rgba(163, 219, 122, 0.2);
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  #country-stamp-list .country-stamp-right-pane {
+    font-size: 70%;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  #country-stamp-list .country-stamp-right-pane {
+    font-size: 80%;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  #country-stamp-list .country-stamp-right-pane {
+    font-size: 90%;
+  }
+}
+@media (min-width: 990px) {
+  #country-stamp-list .country-stamp-right-pane {
+    font-size: 100%;
+  }
+}
+#country-stamp-list .country-stamp-right-pane h2.pane-title {
+  text-transform: uppercase;
+  font-weight: normal !important;
+}
+#country-stamp-list .country-stamp-right-pane th.views-field,
+#country-stamp-list .country-stamp-right-pane .pane-title {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+#country-stamp-list .country-stamp-right-pane .views-table {
+  width: 100%;
+}
+
+.pane-content div.country-stamp img {
+  width: 50%;
+  padding: 2px;
+  display: inline-block;
+  float: left;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .pane-content div.country-stamp img {
+    width: 100%;
+  }
+}
+@media (min-width: 990px) {
+  .pane-content div.country-stamp img {
+    width: 33.3%;
+  }
+}
+
+.panel-panel.panel-col-last {
+  margin-top: -1.0em;
+}
+
+div.panel-pane.pane-custom.pane-2 img {
+  border: 2px #52707d solid;
+}
+
+#view-therapeutic-list table {
+  width: 100%;
+}
+#view-therapeutic-list th.views-field,
+#view-therapeutic-list h2.pane-title {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #341c2c;
+}
+#view-therapeutic-list tbody > tr.even,
+#view-therapeutic-list tbody > tr.even td.active {
+  background-color: rgba(163, 219, 122, 0.2);
+}
+#view-therapeutic-list tbody > tr.odd,
+#view-therapeutic-list tbody > tr.odd td.active {
+  background-color: #FFFFFF;
+}
+#view-therapeutic-list td.views-field.views-field-field-short-description {
+  color: #52707d;
+}
+#view-therapeutic-list table > thead {
+  background-color: rgba(146, 198, 222, 0.2);
+}
+#view-therapeutic-list td.active a {
+  color: #341c2c;
+  text-transform: uppercase;
+  padding-left: 3px;
+  padding-right: 5px;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  #view-therapeutic-list td.active a {
+    font-size: 85%;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  #view-therapeutic-list td.active a {
+    font-size: 90%;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  #view-therapeutic-list td.active a {
+    font-size: 95%;
+  }
+}
+@media (min-width: 990px) {
+  #view-therapeutic-list td.active a {
+    font-size: 100%;
+  }
+}
+
+.page-taxonomy-term .therapeutic-flora,
+.page-taxonomy-term .therapeutic-content {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  float: left;
+  clear: both;
+  margin-top: 1.0em;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .page-taxonomy-term .therapeutic-flora,
+  .page-taxonomy-term .therapeutic-content {
+    font-size: 70%;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .page-taxonomy-term .therapeutic-flora,
+  .page-taxonomy-term .therapeutic-content {
+    font-size: 80%;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .page-taxonomy-term .therapeutic-flora,
+  .page-taxonomy-term .therapeutic-content {
+    font-size: 90%;
+  }
+}
+@media (min-width: 990px) {
+  .page-taxonomy-term .therapeutic-flora,
+  .page-taxonomy-term .therapeutic-content {
+    font-size: 100%;
+  }
+}
+
+.page-taxonomy-term .therapeutic-content {
+  background-color: rgba(244, 244, 135, 0.2);
+}
+
+.therapeutic-flora-right-pane a {
+  font-size: 100%;
+}
+
+.therapeutic-content h2.pane-title {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal !important;
+}
+
+.therapeutic-flora {
+  background-color: rgba(163, 219, 122, 0.2);
+}
+.therapeutic-flora th.views-field,
+.therapeutic-flora .pane-title {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+#video-list .aurora-section-second .views-row {
+  float: left;
+  padding: 7px;
+  background-color: rgba(163, 219, 122, 0.2);
+  margin: 1.0em;
+}
+#video-list .aurora-section-second ul {
+  clear: both;
+  list-style-type: none;
+  display: flex;
+  padding-left: 5px;
+  margin-top: 3px;
+}
+#video-list .aurora-section-second ul li {
+  padding: 5px;
+}
+#video-list .aurora-section-second .field-content video {
+  max-height: 180px;
+}
+#video-list .aurora-section-second h2.pane-title {
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  text-transform: uppercase;
+  padding-left: 7px;
+}
+
+.pane-page-logo {
+  background: #000000;
+  border-style: solid;
+  border-color: #a3db7a;
+  border-width: 0.4em;
+}
+.pane-page-logo img {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .pane-page-logo img {
+    height: 50px;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .pane-page-logo img {
+    height: 65px;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .pane-page-logo img {
+    height: 80px;
+  }
+}
+
+.pane-search-form {
+  position: absolute;
+  top: 75px;
+  right: 28px;
+  width: 118px;
+}
+.pane-search-form #edit-submit {
+  position: relative;
+  top: 5px;
+  right: -28px;
+}
+@media (min-width: 0px) and (max-width: 544px) {
+  .pane-search-form {
+    top: 6px;
+  }
+}
+@media (min-width: 545px) and (max-width: 764px) {
+  .pane-search-form {
+    top: 14px;
+  }
+}
+@media (min-width: 765px) and (max-width: 989px) {
+  .pane-search-form {
+    top: 25px;
+  }
+}
+
+.pane-system-navigation {
+  background-color: rgba(244, 244, 135, 0.2);
+  border-bottom: 3px double #92c6de;
+}
+
+ul.menu {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-bottom: 1em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  text-align: center;
+}
+
+.menu li {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  display: inline-block;
+  padding: 0em 0.25em 0em 0.25em;
+}
+.menu li .leaf {
+  height: 90px;
+}
+.menu li .first.leaf {
+  padding-left: 0.5em;
+}
+.menu li .last.leaf {
+  padding-right: 0.5em;
+}
+.menu li a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 80%;
+}
+.menu li a:link {
+  /* unvisited link */
+  color: #404040;
+  background-color: rgba(244, 244, 135, 0.2);
+}
+.menu li a:visited {
+  /* visited link */
+  color: #404040;
+  background-color: rgba(163, 219, 122, 0.2);
+}
+.menu li a:hover {
+  /* mouse over link */
+  color: black;
+  background-color: rgba(146, 198, 222, 0.2);
+}
+.menu li a:active {
+  /* selected link */
+  color: white;
+  background-color: #341c2c;
+}
+
+@media (min-width: 765px) and (max-width: 989px) {
+  .l-region--navigation {
+    height: 34px;
+  }
+  .l-region--navigation .menu li a {
+    font-size: 90%;
+  }
+}
+@media (min-width: 990px) {
+  .l-region--navigation {
+    height: 36px;
+  }
+  .l-region--navigation .menu li a {
+    font-size: 100%;
+  }
+}
+.aurora-section-third {
+  float: none;
+}
+
+#footer {
+  clear: both;
+  background-color: rgba(244, 244, 135, 0.2);
+  font-family: "Futura-CondensedMedium", "Arial Narrow", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  border-top: 3px double #92c6de;
+}
+#footer table {
+  margin: auto;
+  width: inherit;
+}
+#footer #mini-panel-subdomains > div > div > div.panel-pane.pane-custom.pane-1 {
+  margin-top: 8px;
+}
+#footer div.pane-content {
+  padding-left: 5;
+  padding-right: 5;
+}
+#footer div.pane-content p {
+  font-size: 90%;
+  color: rgba(52, 28, 44, 0.5);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0px 10px 6px 10px;
+}
+#footer div.view-content {
+  clear: both;
+  text-align: center;
+}
+#footer div.view-content p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-decoration: none;
+}
+#footer div.views-field.views-field-field-url > div > p > a {
+  font-size: 90%;
+  text-decoration: none;
+  color: #0000ee;
+}

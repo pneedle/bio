@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bio_fungi feature.
+ */
+
+include_once 'bio_fungi.features.inc';

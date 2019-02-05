@@ -1,0 +1,52 @@
+@import "breakpoint";
+
+//////////////////////////////////////////////////////////////////
+// FOOTER
+//////////////////////////////////////////////////////////////////
+.aurora-section-third {
+	float: none;
+}
+
+#footer {
+	clear: both;
+	background-color: $light-yellow;
+	font-family: $arial-narrow;
+	border-top: 3px double $dark-blue;
+	table {
+		margin: auto;
+		width: inherit;
+	}
+	
+#mini-panel-subdomains > div > div > div.panel-pane.pane-custom.pane-1 {
+	margin-top: 8px;
+}
+
+
+	div.pane-content {
+		padding-left: 5;
+		padding-right: 5;
+		p {
+			font-size: 90%;
+			color: $light-violet;
+			margin-top: 0;
+			margin-bottom: 0;
+			padding: 0px 10px 6px 10px; // TRBL
+		}
+	}
+	
+	div.view-content {
+		clear: both;
+		text-align: center;
+		p {
+			margin-top: 0px;
+			margin-bottom: 0px;
+			text-decoration: none;
+		}
+	}
+	
+	div.views-field.views-field-field-url > div > p > a { // hyperlink text
+		font-size: 90%;
+		text-decoration: none;
+		color: $hyperlink;
+	}
+}

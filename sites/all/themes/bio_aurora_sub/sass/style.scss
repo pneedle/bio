@@ -1,0 +1,44 @@
+////////////////////////
+// Style File
+//
+// This file gets turned into style.css. This file should really hold nothing except for imports of your base, style guide, layout, and design partials.
+////////////////////////
+
+////////////////////////
+// Base Import
+////////////////////////
+@import 'partials/global/base';
+
+////////////////////////
+// Import Variables
+////////////////////////
+@import 'partials/variables/breakpoints';
+@import 'partials/variables/colors';
+@import 'partials/variables/typography';
+
+////////////////////////
+// Import Pages
+////////////////////////
+@import 'partials/pages/articles';
+@import 'partials/pages/glossary';
+@import 'partials/pages/homepage';
+@import 'partials/pages/kpcofgs';
+@import 'partials/pages/list-pages';
+@import 'partials/pages/plantae-id';
+@import 'partials/pages/species-pages';
+@import 'partials/pages/stamp-pages';
+@import 'partials/pages/therapeutic-list';
+@import 'partials/pages/therapeutic-page';
+@import 'partials/pages/videos';
+
+////////////////////////
+// Import Layout
+////////////////////////
+@import 'partials/layout/header';
+@import 'partials/layout/navigation';
+@import 'partials/layout/footer';
+
+////////////////////////
+// Import Design
+////////////////////////
+@import 'partials/design/design';

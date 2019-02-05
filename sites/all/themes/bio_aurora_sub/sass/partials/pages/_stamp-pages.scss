@@ -1,0 +1,93 @@
+////////////////////////
+// Style Guide Partials
+//
+////////////////////////
+@import 'breakpoint';
+
+//////////////////////////////
+// CSS Resets
+//
+// Choose your CSS Reset method:
+//  If you'd like a hard reset, uncomment `compass/reset`.
+//  If you'd prefer a soft reset, uncomment `normalize`
+//////////////////////////////
+// @import 'compass/reset';
+// @import 'normalize';
+
+////////////////////////////////////////
+//  STAMP PAGES
+////////////////////////////////////////
+#country-stamp-list {
+	font-family: $arial-narrow;
+	
+	.page-taxonomy-term {
+		.therapeutic-flora,
+		.therapeutic-content {
+			font-family: $arial-narrow;
+			float: left;
+
+			clear: both;
+			margin-top: 1.0em;
+		}
+	}
+
+	.page-taxonomy-term {
+		.therapeutic-content {
+			background-color: $light-yellow;
+		}
+	}
+
+	.country-stamp-right-pane {
+		background-color: $light-green;
+		@include breakpoint($bkpt-xsmall) {
+			font-size: 70%;
+		}
+		@include breakpoint($bkpt-small) {
+			font-size: 80%;
+		}
+		@include breakpoint($bkpt-medium) {
+			font-size: 90%;
+		}
+		@include breakpoint($bkpt-large) {
+			font-size: 100%;
+		}
+		h2.pane-title {
+		text-transform: uppercase;
+		font-weight: normal !important;
+		}
+		th.views-field,
+		.pane-title {
+			font-family: $arial-narrow;
+			text-transform: uppercase;
+			font-weight: normal;
+		}
+		.views-table {
+			width: 100%;
+		}
+	}
+}
+
+// displays stamp images 2 across 
+.pane-content div.country-stamp img {
+	width: 50%;
+	padding: 2px;
+	display: inline-block;
+	float: left;
+	@include breakpoint($bkpt-xsmall) {
+		width: 100%;
+	}
+	@include breakpoint($bkpt-large) {
+		width: 33.3%;
+	}
+}
+
+.panel-panel.panel-col-last {
+	margin-top: -1.0em;
+}
+
+// displays a border around the country flag
+div.panel-pane.pane-custom.pane-2 img {
+	border: 2px $darker-blue solid;
+}
+
+
