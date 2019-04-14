@@ -1,0 +1,430 @@
+<?php
+/**
+ * @file
+ * The natal module allows users to access their astrological information
+ * It is based on specific birth data (location, date and time).
+ *
+ * @copyright Copyright (c) 2014 Peter Needle.  All rights reserved.
+ * @author Peter Needle
+ */
+
+// ********************************************************************/
+// * Drupal Hooks
+// ********************************************************************/
+
+/**
+ * Implements hook_help(). =============================================================
+ */
+function natal_help($path, $args) {
+	switch ($path){
+		case 'admin/help#natal' : {
+			$output = '<h3>'.t('About').'</h3>';
+			$output .= '<p>'.t('The Natal module makes it easy to access personalized astrological information.').'</p>';
+			return $output;
+			break;
+		}
+	}
+}
+
+/**
+ * Implements hook_permission(). // Takes no parameters =======================================================
+ */
+function natal_permission() {
+	return array(
+		'administer natal' => array(
+			'title' => t('Administer Natal'),
+			'description' => t('Perform administrative tasks associated with the Natal module'),
+		),
+	);
+}
+
+/**
+ * Implements hook_menu(). // Takes no parameter=============================================================
+ */
+function natal_menu() {
+	$items = array();   // initialize empty array, uses return
+	
+// Menu item: "Current"
+	$items['current'] = array(
+		'title' => 'Current Positions of the Planets',
+		'page callback' => 'todays_aspects',
+		'access callback' => TRUE,
+);
+// Menu item: "Test"
+	$items['test'] = array(
+		'title' => 'Current Positions of the Planets',
+		'page callback' => 'todays_aspects',
+		'access callback' => TRUE,
+);	
+// Menu item: "Colors"
+	$items['colors'] = array(
+		'title' => 'Moon Sign Colors',
+		'page callback' => 'moon_sign',
+		'access callback' => TRUE,
+);
+	
+// Admin configuration group.	
+	$items['admin/config/natal'] = array(
+		'title' => 'Natal',
+		'description' => 'Administer Natal',
+		'access arguments' => array('administer natal'),
+	);
+
+// Admin configuration settings. 	
+	$items['admin/config/natal/manage'] = array(
+		'title' => 'Natal settings',
+		'description' => 'Manage Natal settings and configurations.',
+		'access arguments' => array('administer natal'),
+		'page callback' => 'drupal_get_form',  // displays webpage when user visits path
+		'page arguments' => array('natal_admin_settings_form'),  // page identifier
+	);
+return $items;
+}
+
+/**
+ * My Callback function. =============================================================
+ */
+
+//////////////////////////////////////////////////////////////////////////////////////
+// astro3/current   (home page)
+//////////////////////////////////////////////////////////////////////////////////////
+
+function todays_aspects() {
+//	$today = date("F j, Y, g:i:s a"); // F = January
+	$today = date("M. j, Y, g:i a"); // M = Jan; removed seconds
+	$x = "Planetary positions for: <br />" . $today;
+	include_once 'sites/all/modules/custom/natal/example_extract_html.php';
+	include_once 'sites/all/modules/custom/natal/simple_html_dom.php';
+	return $x . $output;
+}
+
+function moon_sign() {
+	//	$today = date("F j, Y, g:i:s a"); // F = January
+		$today = date("M j, Y, g:i a"); // M = Jan; removed seconds
+	$x = "This is the current position of the Moon for: " . $today;
+	include_once 'sites/all/modules/custom/natal/moon_color_html.php';
+	include_once 'sites/all/modules/custom/natal/simple_html_dom.php';
+	return $x . $output;
+}
+
+/**
+ * Implements hook_form(). =============================================================
+ */
+function natal_admin_settings_form($node, &$form_state) {
+	$form = array();  // Remember to include a return statement at end
+	
+	$form['overview'] = array( // FormAPI uses # parameters
+		'#markup' => t('This interface allows administrators to manage general Natal settings'),
+		'#prefix' => '<p>', // used to wrap form element in an html tag
+		'#suffix' => '</p>',
+	);
+	
+/*	$form['name_last'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Last Name'),
+		'#default_value' => $node->natal_name_last,
+		'#size' => 60,
+		'#maxlength' => 128,
+		'#required' => TRUE,
+		'#format' => 'full_html'
+	);	
+	$form['name_first'] = array(
+		'#type' => 'textfield',
+		'#title' => t('First Name'),
+		'#default_value' => $node->firstname,
+		'#size' => 60,
+		'#maxlength' => 128,
+		'#required' => TRUE,
+	);
+	$form['birth_info'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Birth Info'),
+		'#default_value' => $node->birthinfo,
+		'#size' => 50,
+		'#maxlength' => 50,
+		'#required' => TRUE,
+	);
+	$form['birth_city'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Birth City'),
+		'#default_value' => $node->birthcity,
+		'#size' => 50,
+		'#maxlength' => 50,
+		'#required' => TRUE,
+	);
+	$form['birth_state'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Birth State'),
+		'#default_value' => $node->birthstate,
+		'#size' => 10,
+		'#maxlength' => 10,
+		'#required' => TRUE,
+	);
+	$form['birth_country'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Birth country'),
+		'#default_value' => $node->birthcountry,
+		'#size' => 10,
+		'#maxlength' => 10,
+		'#required' => TRUE,
+	);
+	$form['sun_sign'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Sun sign'),
+		'#default_value' => $node->sun_sign,
+		'#size' => 7,
+		'#maxlength' => 7,
+		'#required' => TRUE,
+	);
+	$form['sun_degree'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Sun degree'),
+		'#default_value' => $node->sun_degree,
+		'#size' => 7,
+		'#maxlength' => 7,
+		'#required' => TRUE,
+	);
+	$form['sun_minute'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Sun minute'),
+		'#default_value' => $node->sun_minute,
+		'#size' => 7,
+		'#maxlength' => 7,
+		'#required' => TRUE,
+	);
+*/
+	return system_settings_form($form);
+}
+
+/**
+ * Validates Natal admin settings. =============================================================
+ */
+function natal_admin_settings_form_validate($form, &$form_state) {
+  // Validate text entries.
+/*  if (!_natal_validate_names($name_last)) {
+    form_set_error('natal_name_last', t('Invalid entry for last name.'));
+  }
+  if (!_natal_validate_names($name_first)) {
+    form_set_error('natal_name_first', t('Invalid entry for first name.'));
+  }
+  if (!_natal_validate_names($birth_city)) {
+    form_set_error('natal_birth_city', t('Invalid entry for birth city.'));
+  }
+  if (!_natal_validate_state($birth_state)) {
+    form_set_error('natal_birth_state', t('Invalid entry for birth state.'));
+  }
+  if (!_natal_validate_names($sign_sun)) {
+    form_set_error('natal_sign_sun', t('Invalid entry for Sun sign.'));
+  } 
+  // Validate data entry for First, Last City, State and Sun.
+  if ($name_last == '') {
+    form_set_error('natal_name_last', t('Entry for last name is missing.'));
+  }
+  if ($name_first == '') {
+    form_set_error('natal_name_first', t('Entry for first name is missing.'));
+  }
+  if ($birth_city == '') {
+    form_set_error('natal_birth_city', t('Entry for birth city is missing.'));
+  }
+  if ($birth_state == '') {
+    form_set_error('natal_birth_state', t('Entry for birth state is missing.'));
+  }
+  if ($sun_sign == '') {
+    form_set_error('natal_sun_sign', t('Entry for the Sun is missing.'));
+  }*/
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+
+function natal_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'natal_node_form':{
+      $form['#validate'][] = 'natal_natal_node_form_validate';
+      break;
+    }
+  }
+}
+
+/**
+ * Validates Natal content type.
+ */
+
+function natal_natal_node_form_validate($form, &$form_state) {
+  // Validate Public/Private
+  $pub_pri = $form_state['values']['natal_pub_pri'][LANGUAGE_NONE][0]['value'];
+  if (!_natal_validate_names($pub_pri) && ($pub_pri != '')) {
+    form_set_error('natal_pub_pri', t('Public or Private must be capitalized.'));
+  }
+  if ($pub_pri == '') {
+    form_set_error('natal_pub_pri', t('Public or Private entry is required.'));
+  }
+
+  // Validate first name.
+  $name_first = $form_state['values']['natal_name_first'][LANGUAGE_NONE][0]['value'];
+  if (!_natal_validate_names($name_first) && ($name_first != '')) {
+    form_set_error('natal_name_first', t('First name must be capitalized.'));
+  }
+  if ($name_first == '') {
+    form_set_error('natal_name_first', t('First name field is required.'));
+  }
+
+  // Validate last name.
+  $name_last = $form_state['values']['natal_name_last'][LANGUAGE_NONE][0]['value'];
+  if (!_natal_validate_names($name_last) && ($name_last != '')) {
+    form_set_error('natal_name_last', t('Last name must be capitalized.'));
+  }
+  if ($name_last == '') {
+    form_set_error('natal_name_last', t('Last name field is required.'));
+  }
+
+  // Validate city of birth.
+  $birth_city = $form_state['values']['natal_birth_city'][LANGUAGE_NONE][0]['value'];
+  if (!_natal_validate_names($birth_city) && ($birth_city != '')) {
+    form_set_error('natal_birth_city', t('Birth city must be capitalized.'));
+  }
+  if ($birth_city == '') {
+    form_set_error('natal_birth_city', t('Birth city field is required.'));
+  }
+
+  // Validate state of birth.
+  $birth_state = $form_state['values']['natal_birth_state'][LANGUAGE_NONE][0]['value'];
+	$i = 0;
+	switch ($birth_state) {
+		case "XX": break;
+		case "AL": break;
+		case "AK": break;
+		case "AZ": break;
+		case "AR": break;
+		case "CA": break;
+		case "CO": break;
+		case "CT": break;
+		case "DE": break;
+		case "FL": break;
+		case "GA": break;
+		case "HI": break;
+		case "ID": break;
+		case "IL": break;
+		case "IN": break;
+		case "IA": break;
+		case "KS": break;
+		case "KY": break;
+		case "LA": break;
+		case "ME": break;
+		case "MD": break;
+		case "MA": break;
+		case "MI": break;
+		case "MN": break;
+		case "MS": break;
+		case "MO": break;
+		case "MT": break;
+		case "NE": break;
+		case "NV": break;
+		case "NH": break;
+		case "NJ": break;
+		case "NM": break;
+		case "NY": break;
+		case "NC": break;
+		case "ND": break;
+		case "OH": break;
+		case "OK": break;
+		case "OR": break;
+		case "PA": break;
+		case "RI": break;
+		case "SC": break;
+		case "SD": break;
+		case "TN": break;
+		case "TX": break;
+		case "UT": break;
+		case "VT": break;
+		case "VA": break;
+		case "WA": break;
+		case "WV": break;
+		case "WI": break;
+		case "WY": break;
+		default: $i = 1;
+	}
+  if ($i == 1) {
+    form_set_error('natal_birth_state', t('A valid, 2-letter capitalized state code required.'));
+  }
+  if (($birth_state == '') && ($birth_country = 'United States of America')) {
+    form_set_error('natal_birth_state', t('Birth state field is required.'));
+  }
+
+  // Validate the entry for "Sign"
+	$p = array("sun","moon","mercury","venus","mars","jupiter","saturn","uranus","neptune","pluto","nnode","asc","cusp02","cusp03","mc","cusp05","cusp06");
+	$planet_sign = array("natal_sun_sign","natal_moon_sign","natal_mercury_sign","natal_venus_sign","natal_mars_sign","natal_jupiter_sign","natal_saturn_sign","natal_uranus_sign","natal_neptune_sign","natal_pluto_sign","natal_nnode_sign","natal_asc_sign","natal_cusp02_sign","natal_cusp03_sign","natal_mc_sign","natal_cusp05_sign","natal_cusp06_sign");
+	for ($i=0; $i<count($planet_sign); $i++) {
+		$sign = $form_state['values'][$planet_sign[$i]][LANGUAGE_NONE][0]['value'];
+		$value = $sign;
+		if (!_natal_validate_sign($value) && ($sign != '')) {
+			form_set_error($planet_sign[$i], t('Valid sign is required for: '.ucwords($p[$i])));
+		}
+	}
+
+  // Validate the entry for "Degree"
+	$planet_degree = array("natal_sun_degree","natal_moon_degree","natal_mercury_degree","natal_venus_degree","natal_mars_degree","natal_jupiter_degree","natal_saturn_degree","natal_uranus_degree","natal_neptune_degree","natal_pluto_degree","natal_nnode_degree","natal_asc_degree","natal_cusp02_degree","natal_cusp03_degree","natal_mc_degree","natal_cusp05_degree","natal_cusp06_degree");
+	for ($i=0; $i<count($planet_degree); $i++) {
+		$degree = $form_state['values'][$planet_degree[$i]][LANGUAGE_NONE][0]['value'];
+		$value = $degree;
+		if (!_natal_validate_degree($value) && ($degree != '')) {
+			form_set_error($planet_degree[$i], t('Valid degree entry (a number between 00 and 29) is required for: '. ucwords($p[$i])));
+		}
+	}
+
+  // Validate the entry for "Minute"
+	$planet_minute = array("natal_sun_minute","natal_moon_minute","natal_mercury_minute","natal_venus_minute","natal_mars_minute","natal_jupiter_minute","natal_saturn_minute","natal_uranus_minute","natal_neptune_minute","natal_pluto_minute","natal_nnode_minute","natal_asc_minute","natal_cusp02_minute","natal_cusp03_minute","natal_mc_minute","natal_cusp05_minute","natal_cusp06_minute");
+	for ($i=0; $i<count($planet_minute); $i++) {
+		$minute = $form_state['values'][$planet_minute[$i]][LANGUAGE_NONE][0]['value'];
+		$value = $minute;
+		if (!_natal_validate_minute($value) && ($minute != '')) {
+			form_set_error($planet_minute[$i], t('Valid minute entry (a number between 00 and 59) is required for: '. ucwords($p[$i])));
+		}
+	}
+}
+
+/**
+ * Determine if a name is valid.
+ *
+ * @param string $value
+ *   The value to be tested.
+ *
+ * @return boolean
+ *   TRUE if correctly formatted.
+ */
+function _natal_validate_names($value) { // Tests whether input starts with an uppercase character.
+	$name_regex = "/^(?=[A-Z]{1})/";
+	return preg_match($name_regex, $value) ? TRUE : FALSE;
+}
+
+function _natal_validate_sign($sign) { // Tests for valid sign
+	$i = 0;
+	switch ($sign) {
+		case "ARI": break;
+		case "TAU": break;
+		case "GEM": break;
+		case "CAN": break;
+		case "LEO": break;
+		case "VIR": break;
+		case "LIB": break;
+		case "SCO": break;
+		case "SAG": break;
+		case "CAP": break;
+		case "AQU": break;
+		case "PIS": break;
+		default: $i = 1;
+	}
+	return ($i == 0) ? TRUE : FALSE;
+}
+
+function _natal_validate_degree($degree) { // Tests for valid degree
+	$test = str_pad($degree,2);
+	return (($test < 30) && (0 <= $test) && (strlen($test) <= 2) && (preg_match("/^[0-2]{1}[0-9]{1}/", $test))) ? TRUE : FALSE;	
+}
+
+function _natal_validate_minute($minute) { // Tests for valid minute
+	$test = str_pad($minute,2);
+	return (($test < 60) && (0 <= $test) && (strlen($test) <= 2) && (preg_match("/^[0-5]{1}[0-9]{1}/", $test))) ? TRUE : FALSE;	
+}
+

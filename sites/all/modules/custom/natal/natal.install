@@ -1,0 +1,1511 @@
+<?php
+/**
+ * @file
+ * Natal installation
+ */
+
+/**
+ * Implements hook_install().
+ */
+function natal_install() {  // takes no parameters
+	// Set default variables.  function variable_set($name, $value)
+	variable_set('natal_pub_pri', '');
+	variable_set('natal_name_last', '');    variable_set('natal_name_first', '');
+	
+	variable_set('natal_birth_city', '');   variable_set('natal_birth_info', '');
+	variable_set('natal_birth_state', '');  variable_set('natal_birth_country', '');
+	
+	variable_set('natal_sun_sign', '');     variable_set('natal_sun_degree', '');     variable_set('natal_sun_minute', '');     variable_set('natal_sun_house', '');
+	variable_set('natal_moon_sign', '');    variable_set('natal_moon_degree', '');    variable_set('natal_moon_minute', '');    variable_set('natal_moon_house', '');
+	variable_set('natal_mercury_sign', ''); variable_set('natal_mercury_degree', ''); variable_set('natal_mercury_minute', ''); variable_set('natal_mercury_house', '');
+	variable_set('natal_venus_sign', '');   variable_set('natal_venus_degree', '');   variable_set('natal_venus_minute', '');   variable_set('natal_venus_house', '');
+	variable_set('natal_mars_sign', '');    variable_set('natal_mars_degree', '');    variable_set('natal_mars_minute', '');    variable_set('natal_mars_house', '');
+	variable_set('natal_jupiter_sign', ''); variable_set('natal_jupiter_degree', ''); variable_set('natal_jupiter_minute', ''); variable_set('natal_jupiter_house', '');
+	variable_set('natal_saturn_sign', '');  variable_set('natal_saturn_degree', '');  variable_set('natal_saturn_minute', '');  variable_set('natal_saturn_house', '');
+	variable_set('natal_uranus_sign', '');  variable_set('natal_uranus_degree', '');  variable_set('natal_uranus_minute', '');  variable_set('natal_uranus_house', '');
+	variable_set('natal_neptune_sign', ''); variable_set('natal_neptune_degree', ''); variable_set('natal_neptune_minute', ''); variable_set('natal_neptune_house', '');
+	variable_set('natal_pluto_sign', '');   variable_set('natal_pluto_degree', '');   variable_set('natal_pluto_minute', '');   variable_set('natal_pluto_house', '');
+	variable_set('natal_nnode_sign', '');   variable_set('natal_nnode_degree', '');   variable_set('natal_nnode_minute', '');   variable_set('natal_nnode_house', '');
+
+// VARIABLE_SET_CONJUNCTS
+	variable_set('natal_sun_moon_conjunct', ''); variable_set('natal_sun_mercury_conjunct', ''); variable_set('natal_sun_venus_conjunct', ''); variable_set('natal_sun_mars_conjunct', ''); variable_set('natal_sun_jupiter_conjunct', ''); variable_set('natal_sun_saturn_conjunct', ''); variable_set('natal_sun_uranus_conjunct', ''); variable_set('natal_sun_neptune_conjunct', ''); variable_set('natal_sun_pluto_conjunct', ''); variable_set('natal_sun_nnode_conjunct', ''); variable_set('natal_sun_asc_conjunct', '');
+	variable_set('natal_moon_mercury_conjunct', ''); variable_set('natal_moon_venus_conjunct', ''); variable_set('natal_moon_mars_conjunct', ''); variable_set('natal_moon_jupiter_conjunct', ''); variable_set('natal_moon_saturn_conjunct', ''); variable_set('natal_moon_uranus_conjunct', ''); variable_set('natal_moon_neptune_conjunct', ''); variable_set('natal_moon_pluto_conjunct', ''); variable_set('natal_moon_nnode_conjunct', ''); variable_set('natal_moon_asc_conjunct', '');
+	variable_set('natal_mercury_venus_conjunct', ''); variable_set('natal_mercury_mars_conjunct', ''); variable_set('natal_mercury_jupiter_conjunct', ''); variable_set('natal_mercury_saturn_conjunct', ''); variable_set('natal_mercury_uranus_conjunct', ''); variable_set('natal_mercury_neptune_conjunct', ''); variable_set('natal_mercury_pluto_conjunct', ''); variable_set('natal_mercury_nnode_conjunct', ''); variable_set('natal_mercury_asc_conjunct', '');
+	variable_set('natal_venus_mars_conjunct', ''); variable_set('natal_venus_jupiter_conjunct', ''); variable_set('natal_venus_saturn_conjunct', ''); variable_set('natal_venus_uranus_conjunct', ''); variable_set('natal_venus_neptune_conjunct', ''); variable_set('natal_venus_pluto_conjunct', ''); variable_set('natal_venus_nnode_conjunct', ''); variable_set('natal_venus_asc_conjunct', '');
+	variable_set('natal_mars_jupiter_conjunct', ''); variable_set('natal_mars_saturn_conjunct', ''); variable_set('natal_mars_uranus_conjunct', ''); variable_set('natal_mars_neptune_conjunct', ''); variable_set('natal_mars_pluto_conjunct', ''); variable_set('natal_mars_nnode_conjunct', ''); variable_set('natal_mars_asc_conjunct', '');
+	variable_set('natal_jupiter_saturn_conjunct', ''); variable_set('natal_jupiter_uranus_conjunct', ''); variable_set('natal_jupiter_neptune_conjunct', ''); variable_set('natal_jupiter_pluto_conjunct', ''); variable_set('natal_jupiter_nnode_conjunct', ''); variable_set('natal_jupiter_asc_conjunct', '');
+	variable_set('natal_saturn_uranus_conjunct', ''); variable_set('natal_saturn_neptune_conjunct', ''); variable_set('natal_saturn_pluto_conjunct', ''); variable_set('natal_saturn_nnode_conjunct', ''); variable_set('natal_saturn_asc_conjunct', '');
+	variable_set('natal_uranus_neptune_conjunct', ''); variable_set('natal_uranus_pluto_conjunct', ''); variable_set('natal_uranus_nnode_conjunct', ''); variable_set('natal_uranus_asc_conjunct', '');
+	variable_set('natal_neptune_pluto_conjunct', ''); variable_set('natal_neptune_nnode_conjunct', ''); variable_set('natal_neptune_asc_conjunct', '');
+	variable_set('natal_pluto_nnode_conjunct', ''); variable_set('natal_pluto_asc_conjunct', '');
+	variable_set('natal_nnode_asc_conjunct', '');
+
+// VARIABLE_SET_SEXTILES
+	variable_set('natal_sun_moon_sextile', ''); variable_set('natal_sun_mercury_sextile', ''); variable_set('natal_sun_venus_sextile', ''); variable_set('natal_sun_mars_sextile', ''); variable_set('natal_sun_jupiter_sextile', ''); variable_set('natal_sun_saturn_sextile', ''); variable_set('natal_sun_uranus_sextile', ''); variable_set('natal_sun_neptune_sextile', ''); variable_set('natal_sun_pluto_sextile', ''); variable_set('natal_sun_nnode_sextile', ''); variable_set('natal_sun_asc_sextile', '');
+	variable_set('natal_moon_mercury_sextile', ''); variable_set('natal_moon_venus_sextile', ''); variable_set('natal_moon_mars_sextile', ''); variable_set('natal_moon_jupiter_sextile', ''); variable_set('natal_moon_saturn_sextile', ''); variable_set('natal_moon_uranus_sextile', ''); variable_set('natal_moon_neptune_sextile', ''); variable_set('natal_moon_pluto_sextile', ''); variable_set('natal_moon_nnode_sextile', ''); variable_set('natal_moon_asc_sextile', '');
+	variable_set('natal_mercury_venus_sextile', ''); variable_set('natal_mercury_mars_sextile', ''); variable_set('natal_mercury_jupiter_sextile', ''); variable_set('natal_mercury_saturn_sextile', ''); variable_set('natal_mercury_uranus_sextile', ''); variable_set('natal_mercury_neptune_sextile', ''); variable_set('natal_mercury_pluto_sextile', ''); variable_set('natal_mercury_nnode_sextile', ''); variable_set('natal_mercury_asc_sextile', '');
+	variable_set('natal_venus_mars_sextile', ''); variable_set('natal_venus_jupiter_sextile', ''); variable_set('natal_venus_saturn_sextile', ''); variable_set('natal_venus_uranus_sextile', ''); variable_set('natal_venus_neptune_sextile', ''); variable_set('natal_venus_pluto_sextile', ''); variable_set('natal_venus_nnode_sextile', ''); variable_set('natal_venus_asc_sextile', '');
+	variable_set('natal_mars_jupiter_sextile', ''); variable_set('natal_mars_saturn_sextile', ''); variable_set('natal_mars_uranus_sextile', ''); variable_set('natal_mars_neptune_sextile', ''); variable_set('natal_mars_pluto_sextile', ''); variable_set('natal_mars_nnode_sextile', ''); variable_set('natal_mars_asc_sextile', '');
+	variable_set('natal_jupiter_saturn_sextile', ''); variable_set('natal_jupiter_uranus_sextile', ''); variable_set('natal_jupiter_neptune_sextile', ''); variable_set('natal_jupiter_pluto_sextile', ''); variable_set('natal_jupiter_nnode_sextile', ''); variable_set('natal_jupiter_asc_sextile', '');
+	variable_set('natal_saturn_uranus_sextile', ''); variable_set('natal_saturn_neptune_sextile', ''); variable_set('natal_saturn_pluto_sextile', ''); variable_set('natal_saturn_nnode_sextile', ''); variable_set('natal_saturn_asc_sextile', '');
+	variable_set('natal_uranus_neptune_sextile', ''); variable_set('natal_uranus_pluto_sextile', ''); variable_set('natal_uranus_nnode_sextile', ''); variable_set('natal_uranus_asc_sextile', '');
+	variable_set('natal_neptune_pluto_sextile', ''); variable_set('natal_neptune_nnode_sextile', ''); variable_set('natal_neptune_asc_sextile', '');
+	variable_set('natal_pluto_nnode_sextile', ''); variable_set('natal_pluto_asc_sextile', '');
+	variable_set('natal_nnode_asc_sextile', '');
+
+// VARIABLE_SET_SQUARES
+	variable_set('natal_sun_moon_square', ''); variable_set('natal_sun_mercury_square', ''); variable_set('natal_sun_venus_square', ''); variable_set('natal_sun_mars_square', ''); variable_set('natal_sun_jupiter_square', ''); variable_set('natal_sun_saturn_square', ''); variable_set('natal_sun_uranus_square', ''); variable_set('natal_sun_neptune_square', ''); variable_set('natal_sun_pluto_square', ''); variable_set('natal_sun_nnode_square', ''); variable_set('natal_sun_asc_square', '');
+	variable_set('natal_moon_mercury_square', ''); variable_set('natal_moon_venus_square', ''); variable_set('natal_moon_mars_square', ''); variable_set('natal_moon_jupiter_square', ''); variable_set('natal_moon_saturn_square', ''); variable_set('natal_moon_uranus_square', ''); variable_set('natal_moon_neptune_square', ''); variable_set('natal_moon_pluto_square', ''); variable_set('natal_moon_nnode_square', ''); variable_set('natal_moon_asc_square', '');
+	variable_set('natal_mercury_venus_square', ''); variable_set('natal_mercury_mars_square', ''); variable_set('natal_mercury_jupiter_square', ''); variable_set('natal_mercury_saturn_square', ''); variable_set('natal_mercury_uranus_square', ''); variable_set('natal_mercury_neptune_square', ''); variable_set('natal_mercury_pluto_square', ''); variable_set('natal_mercury_nnode_square', ''); variable_set('natal_mercury_asc_square', '');
+	variable_set('natal_venus_mars_square', ''); variable_set('natal_venus_jupiter_square', ''); variable_set('natal_venus_saturn_square', ''); variable_set('natal_venus_uranus_square', ''); variable_set('natal_venus_neptune_square', ''); variable_set('natal_venus_pluto_square', ''); variable_set('natal_venus_nnode_square', ''); variable_set('natal_venus_asc_square', '');
+	variable_set('natal_mars_jupiter_square', ''); variable_set('natal_mars_saturn_square', ''); variable_set('natal_mars_uranus_square', ''); variable_set('natal_mars_neptune_square', ''); variable_set('natal_mars_pluto_square', ''); variable_set('natal_mars_nnode_square', ''); variable_set('natal_mars_asc_square', '');
+	variable_set('natal_jupiter_saturn_square', ''); variable_set('natal_jupiter_uranus_square', ''); variable_set('natal_jupiter_neptune_square', ''); variable_set('natal_jupiter_pluto_square', ''); variable_set('natal_jupiter_nnode_square', ''); variable_set('natal_jupiter_asc_square', '');
+	variable_set('natal_saturn_uranus_square', ''); variable_set('natal_saturn_neptune_square', ''); variable_set('natal_saturn_pluto_square', ''); variable_set('natal_saturn_nnode_square', ''); variable_set('natal_saturn_asc_square', '');
+	variable_set('natal_uranus_neptune_square', ''); variable_set('natal_uranus_pluto_square', ''); variable_set('natal_uranus_nnode_square', ''); variable_set('natal_uranus_asc_square', '');
+	variable_set('natal_neptune_pluto_square', ''); variable_set('natal_neptune_nnode_square', ''); variable_set('natal_neptune_asc_square', '');
+	variable_set('natal_pluto_nnode_square', ''); variable_set('natal_pluto_asc_square', '');
+	variable_set('natal_nnode_asc_square', '');
+
+// VARIABLE_SET_TRINES
+	variable_set('natal_sun_moon_trine', ''); variable_set('natal_sun_mercury_trine', ''); variable_set('natal_sun_venus_trine', ''); variable_set('natal_sun_mars_trine', ''); variable_set('natal_sun_jupiter_trine', ''); variable_set('natal_sun_saturn_trine', ''); variable_set('natal_sun_uranus_trine', ''); variable_set('natal_sun_neptune_trine', ''); variable_set('natal_sun_pluto_trine', ''); variable_set('natal_sun_nnode_trine', ''); variable_set('natal_sun_asc_trine', '');
+	variable_set('natal_moon_mercury_trine', ''); variable_set('natal_moon_venus_trine', ''); variable_set('natal_moon_mars_trine', ''); variable_set('natal_moon_jupiter_trine', ''); variable_set('natal_moon_saturn_trine', ''); variable_set('natal_moon_uranus_trine', ''); variable_set('natal_moon_neptune_trine', ''); variable_set('natal_moon_pluto_trine', ''); variable_set('natal_moon_nnode_trine', ''); variable_set('natal_moon_asc_trine', '');
+	variable_set('natal_mercury_venus_trine', ''); variable_set('natal_mercury_mars_trine', ''); variable_set('natal_mercury_jupiter_trine', ''); variable_set('natal_mercury_saturn_trine', ''); variable_set('natal_mercury_uranus_trine', ''); variable_set('natal_mercury_neptune_trine', ''); variable_set('natal_mercury_pluto_trine', ''); variable_set('natal_mercury_nnode_trine', ''); variable_set('natal_mercury_asc_trine', '');
+	variable_set('natal_venus_mars_trine', ''); variable_set('natal_venus_jupiter_trine', ''); variable_set('natal_venus_saturn_trine', ''); variable_set('natal_venus_uranus_trine', ''); variable_set('natal_venus_neptune_trine', ''); variable_set('natal_venus_pluto_trine', ''); variable_set('natal_venus_nnode_trine', ''); variable_set('natal_venus_asc_trine', '');
+	variable_set('natal_mars_jupiter_trine', ''); variable_set('natal_mars_saturn_trine', ''); variable_set('natal_mars_uranus_trine', ''); variable_set('natal_mars_neptune_trine', ''); variable_set('natal_mars_pluto_trine', ''); variable_set('natal_mars_nnode_trine', ''); variable_set('natal_mars_asc_trine', '');
+	variable_set('natal_jupiter_saturn_trine', ''); variable_set('natal_jupiter_uranus_trine', ''); variable_set('natal_jupiter_neptune_trine', ''); variable_set('natal_jupiter_pluto_trine', ''); variable_set('natal_jupiter_nnode_trine', ''); variable_set('natal_jupiter_asc_trine', '');
+	variable_set('natal_saturn_uranus_trine', ''); variable_set('natal_saturn_neptune_trine', ''); variable_set('natal_saturn_pluto_trine', ''); variable_set('natal_saturn_nnode_trine', ''); variable_set('natal_saturn_asc_trine', '');
+	variable_set('natal_uranus_neptune_trine', ''); variable_set('natal_uranus_pluto_trine', ''); variable_set('natal_uranus_nnode_trine', ''); variable_set('natal_uranus_asc_trine', '');
+	variable_set('natal_neptune_pluto_trine', ''); variable_set('natal_neptune_nnode_trine', ''); variable_set('natal_neptune_asc_trine', '');
+	variable_set('natal_pluto_nnode_trine', ''); variable_set('natal_pluto_asc_trine', '');
+	variable_set('natal_nnode_asc_trine', '');
+
+// VARIABLE_SET_OPPOSITES
+	variable_set('natal_sun_moon_opposite', ''); variable_set('natal_sun_mercury_opposite', ''); variable_set('natal_sun_venus_opposite', ''); variable_set('natal_sun_mars_opposite', ''); variable_set('natal_sun_jupiter_opposite', ''); variable_set('natal_sun_saturn_opposite', ''); variable_set('natal_sun_uranus_opposite', ''); variable_set('natal_sun_neptune_opposite', ''); variable_set('natal_sun_pluto_opposite', ''); variable_set('natal_sun_nnode_opposite', ''); variable_set('natal_sun_asc_opposite', '');
+	variable_set('natal_moon_mercury_opposite', ''); variable_set('natal_moon_venus_opposite', ''); variable_set('natal_moon_mars_opposite', ''); variable_set('natal_moon_jupiter_opposite', ''); variable_set('natal_moon_saturn_opposite', ''); variable_set('natal_moon_uranus_opposite', ''); variable_set('natal_moon_neptune_opposite', ''); variable_set('natal_moon_pluto_opposite', ''); variable_set('natal_moon_nnode_opposite', ''); variable_set('natal_moon_asc_opposite', '');
+	variable_set('natal_mercury_venus_opposite', ''); variable_set('natal_mercury_mars_opposite', ''); variable_set('natal_mercury_jupiter_opposite', ''); variable_set('natal_mercury_saturn_opposite', ''); variable_set('natal_mercury_uranus_opposite', ''); variable_set('natal_mercury_neptune_opposite', ''); variable_set('natal_mercury_pluto_opposite', ''); variable_set('natal_mercury_nnode_opposite', ''); variable_set('natal_mercury_asc_opposite', '');
+	variable_set('natal_venus_mars_opposite', ''); variable_set('natal_venus_jupiter_opposite', ''); variable_set('natal_venus_saturn_opposite', ''); variable_set('natal_venus_uranus_opposite', ''); variable_set('natal_venus_neptune_opposite', ''); variable_set('natal_venus_pluto_opposite', ''); variable_set('natal_venus_nnode_opposite', ''); variable_set('natal_venus_asc_opposite', '');
+	variable_set('natal_mars_jupiter_opposite', ''); variable_set('natal_mars_saturn_opposite', ''); variable_set('natal_mars_uranus_opposite', ''); variable_set('natal_mars_neptune_opposite', ''); variable_set('natal_mars_pluto_opposite', ''); variable_set('natal_mars_nnode_opposite', ''); variable_set('natal_mars_asc_opposite', '');
+	variable_set('natal_jupiter_saturn_opposite', ''); variable_set('natal_jupiter_uranus_opposite', ''); variable_set('natal_jupiter_neptune_opposite', ''); variable_set('natal_jupiter_pluto_opposite', ''); variable_set('natal_jupiter_nnode_opposite', ''); variable_set('natal_jupiter_asc_opposite', '');
+	variable_set('natal_saturn_uranus_opposite', ''); variable_set('natal_saturn_neptune_opposite', ''); variable_set('natal_saturn_pluto_opposite', ''); variable_set('natal_saturn_nnode_opposite', ''); variable_set('natal_saturn_asc_opposite', '');
+	variable_set('natal_uranus_neptune_opposite', ''); variable_set('natal_uranus_pluto_opposite', ''); variable_set('natal_uranus_nnode_opposite', ''); variable_set('natal_uranus_asc_opposite', '');
+	variable_set('natal_neptune_pluto_opposite', ''); variable_set('natal_neptune_nnode_opposite', ''); variable_set('natal_neptune_asc_opposite', '');
+	variable_set('natal_pluto_nnode_opposite', ''); variable_set('natal_pluto_asc_opposite', '');
+	variable_set('natal_nnode_asc_opposite', '');
+
+	// Get localization function for installation as t() may be unavailable.
+	$t = get_t();
+	
+	// Give user feedback.
+	drupal_set_message($t('Natal variables created.'));
+	
+	// Content type definition
+	$content_type = array( // Order of keys is unimportant.
+		'type' => 'natal', // Machine name
+		'name' => $t('Natal'), // Human-readable name.
+		'description' => $t('Astrological delineation information.'),
+		'title-label' => $t('Natal information'),
+		'base' => 'node_content',
+		'custom' => TRUE, // Flag; indicates an add content type was used
+	);
+	
+	// Set the remaining definitions with defaults
+	$node_type = node_type_set_defaults($content_type);
+	
+	// Save the content type.
+	node_type_save($node_type);
+	
+	// Add a field for the body.
+//	node_add_body_field($node_type, $t('Description'));
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Create all fields.
+///////////////////////////////////////////////////////////////////////////////////////////////////
+	$fields = array();
+	
+// Create fields for PERSONAL INFO (ex: $fields['natal_name_last'], $fields['natal_name_first']) ==========================================
+	$fields['natal_pub_pri']        = array('field_name' => 'natal_pub_pri', 'type'        => 'text', 'settings' => array('max_length' => 30,),);
+	$fields['natal_name_last']      = array('field_name' => 'natal_name_last', 'type'      => 'text', 'settings' => array('max_length' => 30,),);
+	$fields['natal_name_first']     = array('field_name' => 'natal_name_first', 'type'     => 'text', 'settings' => array('max_length' => 30,),);
+	$fields['natal_birth_info']     = array('field_name' => 'natal_birth_info', 'type'     => 'text', 'settings' => array('max_length' => 30,),);
+	$fields['natal_birth_city']     = array('field_name' => 'natal_birth_city', 'type'     => 'text', 'settings' => array('max_length' => 30,),);
+	$fields['natal_birth_state']    = array('field_name' => 'natal_birth_state', 'type'    => 'text', 'settings' => array('max_length' =>  2,),);
+	$fields['natal_birth_country']  = array('field_name' => 'natal_birth_country', 'type'  => 'text', 'settings' => array('max_length' => 30,),);
+
+// Create fields for ALL PLANETS (ex: $fields['natal_sun_sign'], $fields['natal_sun_degree'], $fields['natal_sun_minute']) =================	
+	$fields['natal_sun_sign']       = array('field_name' => 'natal_sun_sign', 'type'       => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_sun_degree']     = array('field_name' => 'natal_sun_degree', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_sun_minute']     = array('field_name' => 'natal_sun_minute', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_sun_house']      = array('field_name' => 'natal_sun_house', 'type'      => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_moon_sign']      = array('field_name' => 'natal_moon_sign', 'type'      => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_moon_degree']    = array('field_name' => 'natal_moon_degree', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_moon_minute']    = array('field_name' => 'natal_moon_minute', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_moon_house']     = array('field_name' => 'natal_moon_house', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_mercury_sign']   = array('field_name' => 'natal_mercury_sign', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mercury_degree'] = array('field_name' => 'natal_mercury_degree', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mercury_minute'] = array('field_name' => 'natal_mercury_minute', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mercury_house']  = array('field_name' => 'natal_mercury_house', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_venus_sign']     = array('field_name' => 'natal_venus_sign', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_venus_degree']   = array('field_name' => 'natal_venus_degree', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_venus_minute']   = array('field_name' => 'natal_venus_minute', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_venus_house']    = array('field_name' => 'natal_venus_house', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_mars_sign']      = array('field_name' => 'natal_mars_sign', 'type'      => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mars_degree']    = array('field_name' => 'natal_mars_degree', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mars_minute']    = array('field_name' => 'natal_mars_minute', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mars_house']     = array('field_name' => 'natal_mars_house', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_jupiter_sign']   = array('field_name' => 'natal_jupiter_sign', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_jupiter_degree'] = array('field_name' => 'natal_jupiter_degree', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_jupiter_minute'] = array('field_name' => 'natal_jupiter_minute', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_jupiter_house']  = array('field_name' => 'natal_jupiter_house', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_saturn_sign']    = array('field_name' => 'natal_saturn_sign', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_saturn_degree']  = array('field_name' => 'natal_saturn_degree', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_saturn_minute']  = array('field_name' => 'natal_saturn_minute', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_saturn_house']   = array('field_name' => 'natal_saturn_house', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_uranus_sign']    = array('field_name' => 'natal_uranus_sign', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_uranus_degree']  = array('field_name' => 'natal_uranus_degree', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_uranus_minute']  = array('field_name' => 'natal_uranus_minute', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_uranus_house']   = array('field_name' => 'natal_uranus_house', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_neptune_sign']   = array('field_name' => 'natal_neptune_sign', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_neptune_degree'] = array('field_name' => 'natal_neptune_degree', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_neptune_minute'] = array('field_name' => 'natal_neptune_minute', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_neptune_house']  = array('field_name' => 'natal_neptune_house', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_pluto_sign']     = array('field_name' => 'natal_pluto_sign', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_pluto_degree']   = array('field_name' => 'natal_pluto_degree', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_pluto_minute']   = array('field_name' => 'natal_pluto_minute', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_pluto_house']    = array('field_name' => 'natal_pluto_house', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+
+	$fields['natal_nnode_sign']     = array('field_name' => 'natal_nnode_sign', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_nnode_degree']   = array('field_name' => 'natal_nnode_degree', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_nnode_minute']   = array('field_name' => 'natal_nnode_minute', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_nnode_house']    = array('field_name' => 'natal_nnode_house', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+
+// Create fields for ALL CUSPS (ex: $fields['natal_asc_sign'], $fields['natal_asc_degree'], $fields['natal_asc_minute']) ===================	
+	$fields['natal_asc_sign']       = array('field_name' => 'natal_asc_sign', 'type'       => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_asc_degree']     = array('field_name' => 'natal_asc_degree', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_asc_minute']     = array('field_name' => 'natal_asc_minute', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp02_sign']    = array('field_name' => 'natal_cusp02_sign', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp02_degree']  = array('field_name' => 'natal_cusp02_degree', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp02_minute']  = array('field_name' => 'natal_cusp02_minute', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp03_sign']    = array('field_name' => 'natal_cusp03_sign', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp03_degree']  = array('field_name' => 'natal_cusp03_degree', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp03_minute']  = array('field_name' => 'natal_cusp03_minute', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mc_sign']        = array('field_name' => 'natal_mc_sign', 'type'        => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mc_degree']      = array('field_name' => 'natal_mc_degree', 'type'      => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mc_minute']      = array('field_name' => 'natal_mc_minute', 'type'      => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp05_sign']    = array('field_name' => 'natal_cusp05_sign', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp05_degree']  = array('field_name' => 'natal_cusp05_degree', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp05_minute']  = array('field_name' => 'natal_cusp05_minute', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp06_sign']    = array('field_name' => 'natal_cusp06_sign', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp06_degree']  = array('field_name' => 'natal_cusp06_degree', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_cusp06_minute']  = array('field_name' => 'natal_cusp06_minute', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+
+// CONJUNCT
+	$fields['natal_sun_moon_conjunct']         = array('field_name' => 'natal_sun_moon_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mercury_conjunct']      = array('field_name' => 'natal_sun_mercury_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_venus_conjunct']        = array('field_name' => 'natal_sun_venus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mars_conjunct']         = array('field_name' => 'natal_sun_mars_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_jupiter_conjunct']      = array('field_name' => 'natal_sun_jupiter_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_saturn_conjunct']       = array('field_name' => 'natal_sun_saturn_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_uranus_conjunct']       = array('field_name' => 'natal_sun_uranus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_neptune_conjunct']      = array('field_name' => 'natal_sun_neptune_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_pluto_conjunct']        = array('field_name' => 'natal_sun_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_nnode_conjunct']        = array('field_name' => 'natal_sun_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_asc_conjunct']          = array('field_name' => 'natal_sun_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mercury_conjunct']     = array('field_name' => 'natal_moon_mercury_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_venus_conjunct']       = array('field_name' => 'natal_moon_venus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mars_conjunct']        = array('field_name' => 'natal_moon_mars_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_jupiter_conjunct']     = array('field_name' => 'natal_moon_jupiter_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_saturn_conjunct']      = array('field_name' => 'natal_moon_saturn_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_uranus_conjunct']      = array('field_name' => 'natal_moon_uranus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_neptune_conjunct']     = array('field_name' => 'natal_moon_neptune_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_pluto_conjunct']       = array('field_name' => 'natal_moon_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_nnode_conjunct']       = array('field_name' => 'natal_moon_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_asc_conjunct']         = array('field_name' => 'natal_moon_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_venus_conjunct']    = array('field_name' => 'natal_mercury_venus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_mars_conjunct']     = array('field_name' => 'natal_mercury_mars_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_jupiter_conjunct']  = array('field_name' => 'natal_mercury_jupiter_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_saturn_conjunct']   = array('field_name' => 'natal_mercury_saturn_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_uranus_conjunct']   = array('field_name' => 'natal_mercury_uranus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_neptune_conjunct']  = array('field_name' => 'natal_mercury_neptune_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_pluto_conjunct']    = array('field_name' => 'natal_mercury_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_nnode_conjunct']    = array('field_name' => 'natal_mercury_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_asc_conjunct']      = array('field_name' => 'natal_mercury_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_mars_conjunct']       = array('field_name' => 'natal_venus_mars_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_jupiter_conjunct']    = array('field_name' => 'natal_venus_jupiter_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_saturn_conjunct']     = array('field_name' => 'natal_venus_saturn_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_uranus_conjunct']     = array('field_name' => 'natal_venus_uranus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_neptune_conjunct']    = array('field_name' => 'natal_venus_neptune_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_pluto_conjunct']      = array('field_name' => 'natal_venus_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_nnode_conjunct']      = array('field_name' => 'natal_venus_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_asc_conjunct']        = array('field_name' => 'natal_venus_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_jupiter_conjunct']     = array('field_name' => 'natal_mars_jupiter_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_saturn_conjunct']      = array('field_name' => 'natal_mars_saturn_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_uranus_conjunct']      = array('field_name' => 'natal_mars_uranus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_neptune_conjunct']     = array('field_name' => 'natal_mars_neptune_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_pluto_conjunct']       = array('field_name' => 'natal_mars_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_nnode_conjunct']       = array('field_name' => 'natal_mars_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_asc_conjunct']         = array('field_name' => 'natal_mars_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_saturn_conjunct']   = array('field_name' => 'natal_jupiter_saturn_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_uranus_conjunct']   = array('field_name' => 'natal_jupiter_uranus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_neptune_conjunct']  = array('field_name' => 'natal_jupiter_neptune_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_pluto_conjunct']    = array('field_name' => 'natal_jupiter_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_nnode_conjunct']    = array('field_name' => 'natal_jupiter_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_asc_conjunct']      = array('field_name' => 'natal_jupiter_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_uranus_conjunct']    = array('field_name' => 'natal_saturn_uranus_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_neptune_conjunct']   = array('field_name' => 'natal_saturn_neptune_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_pluto_conjunct']     = array('field_name' => 'natal_saturn_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_nnode_conjunct']     = array('field_name' => 'natal_saturn_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_asc_conjunct']       = array('field_name' => 'natal_saturn_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_neptune_conjunct']   = array('field_name' => 'natal_uranus_neptune_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_pluto_conjunct']     = array('field_name' => 'natal_uranus_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_nnode_conjunct']     = array('field_name' => 'natal_uranus_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_asc_conjunct']       = array('field_name' => 'natal_uranus_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_pluto_conjunct']    = array('field_name' => 'natal_neptune_pluto_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_nnode_conjunct']    = array('field_name' => 'natal_neptune_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_asc_conjunct']      = array('field_name' => 'natal_neptune_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_nnode_conjunct']      = array('field_name' => 'natal_pluto_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_asc_conjunct']        = array('field_name' => 'natal_pluto_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_conjunct']        = array('field_name' => 'natal_asc_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+
+// SEXTILE
+	$fields['natal_sun_moon_sextile']         = array('field_name' => 'natal_sun_moon_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mercury_sextile']      = array('field_name' => 'natal_sun_mercury_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_venus_sextile']        = array('field_name' => 'natal_sun_venus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mars_sextile']         = array('field_name' => 'natal_sun_mars_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_jupiter_sextile']      = array('field_name' => 'natal_sun_jupiter_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_saturn_sextile']       = array('field_name' => 'natal_sun_saturn_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_uranus_sextile']       = array('field_name' => 'natal_sun_uranus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_neptune_sextile']      = array('field_name' => 'natal_sun_neptune_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_pluto_sextile']        = array('field_name' => 'natal_sun_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_nnode_sextile']        = array('field_name' => 'natal_sun_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_asc_sextile']          = array('field_name' => 'natal_sun_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mercury_sextile']     = array('field_name' => 'natal_moon_mercury_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_venus_sextile']       = array('field_name' => 'natal_moon_venus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mars_sextile']        = array('field_name' => 'natal_moon_mars_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_jupiter_sextile']     = array('field_name' => 'natal_moon_jupiter_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_saturn_sextile']      = array('field_name' => 'natal_moon_saturn_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_uranus_sextile']      = array('field_name' => 'natal_moon_uranus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_neptune_sextile']     = array('field_name' => 'natal_moon_neptune_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_pluto_sextile']       = array('field_name' => 'natal_moon_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_nnode_sextile']       = array('field_name' => 'natal_moon_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_asc_sextile']         = array('field_name' => 'natal_moon_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_venus_sextile']    = array('field_name' => 'natal_mercury_venus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_mars_sextile']     = array('field_name' => 'natal_mercury_mars_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_jupiter_sextile']  = array('field_name' => 'natal_mercury_jupiter_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_saturn_sextile']   = array('field_name' => 'natal_mercury_saturn_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_uranus_sextile']   = array('field_name' => 'natal_mercury_uranus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_neptune_sextile']  = array('field_name' => 'natal_mercury_neptune_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_pluto_sextile']    = array('field_name' => 'natal_mercury_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_nnode_sextile']    = array('field_name' => 'natal_mercury_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_asc_sextile']      = array('field_name' => 'natal_mercury_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_mars_sextile']       = array('field_name' => 'natal_venus_mars_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_jupiter_sextile']    = array('field_name' => 'natal_venus_jupiter_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_saturn_sextile']     = array('field_name' => 'natal_venus_saturn_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_uranus_sextile']     = array('field_name' => 'natal_venus_uranus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_neptune_sextile']    = array('field_name' => 'natal_venus_neptune_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_pluto_sextile']      = array('field_name' => 'natal_venus_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_nnode_sextile']      = array('field_name' => 'natal_venus_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_asc_sextile']        = array('field_name' => 'natal_venus_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_jupiter_sextile']     = array('field_name' => 'natal_mars_jupiter_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_saturn_sextile']      = array('field_name' => 'natal_mars_saturn_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_uranus_sextile']      = array('field_name' => 'natal_mars_uranus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_neptune_sextile']     = array('field_name' => 'natal_mars_neptune_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_pluto_sextile']       = array('field_name' => 'natal_mars_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_nnode_sextile']       = array('field_name' => 'natal_mars_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_asc_sextile']         = array('field_name' => 'natal_mars_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_saturn_sextile']   = array('field_name' => 'natal_jupiter_saturn_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_uranus_sextile']   = array('field_name' => 'natal_jupiter_uranus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_neptune_sextile']  = array('field_name' => 'natal_jupiter_neptune_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_pluto_sextile']    = array('field_name' => 'natal_jupiter_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_nnode_sextile']    = array('field_name' => 'natal_jupiter_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_asc_sextile']      = array('field_name' => 'natal_jupiter_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_uranus_sextile']    = array('field_name' => 'natal_saturn_uranus_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_neptune_sextile']   = array('field_name' => 'natal_saturn_neptune_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_pluto_sextile']     = array('field_name' => 'natal_saturn_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_nnode_sextile']     = array('field_name' => 'natal_saturn_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_asc_sextile']       = array('field_name' => 'natal_saturn_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_neptune_sextile']   = array('field_name' => 'natal_uranus_neptune_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_pluto_sextile']     = array('field_name' => 'natal_uranus_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_nnode_sextile']     = array('field_name' => 'natal_uranus_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_asc_sextile']       = array('field_name' => 'natal_uranus_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_pluto_sextile']    = array('field_name' => 'natal_neptune_pluto_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_nnode_sextile']    = array('field_name' => 'natal_neptune_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_asc_sextile']      = array('field_name' => 'natal_neptune_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_nnode_sextile']      = array('field_name' => 'natal_pluto_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_asc_sextile']        = array('field_name' => 'natal_pluto_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_sextile']        = array('field_name' => 'natal_asc_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+
+// SQUARE
+	$fields['natal_sun_moon_square']         = array('field_name' => 'natal_sun_moon_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mercury_square']      = array('field_name' => 'natal_sun_mercury_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_venus_square']        = array('field_name' => 'natal_sun_venus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mars_square']         = array('field_name' => 'natal_sun_mars_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_jupiter_square']      = array('field_name' => 'natal_sun_jupiter_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_saturn_square']       = array('field_name' => 'natal_sun_saturn_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_uranus_square']       = array('field_name' => 'natal_sun_uranus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_neptune_square']      = array('field_name' => 'natal_sun_neptune_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_pluto_square']        = array('field_name' => 'natal_sun_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_nnode_square']        = array('field_name' => 'natal_sun_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_asc_square']          = array('field_name' => 'natal_sun_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mercury_square']     = array('field_name' => 'natal_moon_mercury_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_venus_square']       = array('field_name' => 'natal_moon_venus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mars_square']        = array('field_name' => 'natal_moon_mars_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_jupiter_square']     = array('field_name' => 'natal_moon_jupiter_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_saturn_square']      = array('field_name' => 'natal_moon_saturn_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_uranus_square']      = array('field_name' => 'natal_moon_uranus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_neptune_square']     = array('field_name' => 'natal_moon_neptune_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_pluto_square']       = array('field_name' => 'natal_moon_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_nnode_square']       = array('field_name' => 'natal_moon_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_asc_square']         = array('field_name' => 'natal_moon_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_venus_square']    = array('field_name' => 'natal_mercury_venus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_mars_square']     = array('field_name' => 'natal_mercury_mars_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_jupiter_square']  = array('field_name' => 'natal_mercury_jupiter_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_saturn_square']   = array('field_name' => 'natal_mercury_saturn_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_uranus_square']   = array('field_name' => 'natal_mercury_uranus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_neptune_square']  = array('field_name' => 'natal_mercury_neptune_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_pluto_square']    = array('field_name' => 'natal_mercury_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_nnode_square']    = array('field_name' => 'natal_mercury_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_asc_square']      = array('field_name' => 'natal_mercury_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_mars_square']       = array('field_name' => 'natal_venus_mars_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_jupiter_square']    = array('field_name' => 'natal_venus_jupiter_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_saturn_square']     = array('field_name' => 'natal_venus_saturn_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_uranus_square']     = array('field_name' => 'natal_venus_uranus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_neptune_square']    = array('field_name' => 'natal_venus_neptune_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_pluto_square']      = array('field_name' => 'natal_venus_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_nnode_square']      = array('field_name' => 'natal_venus_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_asc_square']        = array('field_name' => 'natal_venus_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_jupiter_square']     = array('field_name' => 'natal_mars_jupiter_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_saturn_square']      = array('field_name' => 'natal_mars_saturn_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_uranus_square']      = array('field_name' => 'natal_mars_uranus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_neptune_square']     = array('field_name' => 'natal_mars_neptune_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_pluto_square']       = array('field_name' => 'natal_mars_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_nnode_square']       = array('field_name' => 'natal_mars_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_asc_square']         = array('field_name' => 'natal_mars_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_saturn_square']   = array('field_name' => 'natal_jupiter_saturn_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_uranus_square']   = array('field_name' => 'natal_jupiter_uranus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_neptune_square']  = array('field_name' => 'natal_jupiter_neptune_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_pluto_square']    = array('field_name' => 'natal_jupiter_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_nnode_square']    = array('field_name' => 'natal_jupiter_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_asc_square']      = array('field_name' => 'natal_jupiter_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_uranus_square']    = array('field_name' => 'natal_saturn_uranus_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_neptune_square']   = array('field_name' => 'natal_saturn_neptune_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_pluto_square']     = array('field_name' => 'natal_saturn_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_nnode_square']     = array('field_name' => 'natal_saturn_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_asc_square']       = array('field_name' => 'natal_saturn_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_neptune_square']   = array('field_name' => 'natal_uranus_neptune_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_pluto_square']     = array('field_name' => 'natal_uranus_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_nnode_square']     = array('field_name' => 'natal_uranus_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_asc_square']       = array('field_name' => 'natal_uranus_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_pluto_square']    = array('field_name' => 'natal_neptune_pluto_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_nnode_square']    = array('field_name' => 'natal_neptune_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_asc_square']      = array('field_name' => 'natal_neptune_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_nnode_square']      = array('field_name' => 'natal_pluto_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_asc_square']        = array('field_name' => 'natal_pluto_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_square']        = array('field_name' => 'natal_asc_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+
+// TRINE
+	$fields['natal_sun_moon_trine']         = array('field_name' => 'natal_sun_moon_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mercury_trine']      = array('field_name' => 'natal_sun_mercury_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_venus_trine']        = array('field_name' => 'natal_sun_venus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mars_trine']         = array('field_name' => 'natal_sun_mars_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_jupiter_trine']      = array('field_name' => 'natal_sun_jupiter_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_saturn_trine']       = array('field_name' => 'natal_sun_saturn_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_uranus_trine']       = array('field_name' => 'natal_sun_uranus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_neptune_trine']      = array('field_name' => 'natal_sun_neptune_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_pluto_trine']        = array('field_name' => 'natal_sun_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_nnode_trine']        = array('field_name' => 'natal_sun_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_asc_trine']          = array('field_name' => 'natal_sun_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mercury_trine']     = array('field_name' => 'natal_moon_mercury_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_venus_trine']       = array('field_name' => 'natal_moon_venus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mars_trine']        = array('field_name' => 'natal_moon_mars_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_jupiter_trine']     = array('field_name' => 'natal_moon_jupiter_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_saturn_trine']      = array('field_name' => 'natal_moon_saturn_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_uranus_trine']      = array('field_name' => 'natal_moon_uranus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_neptune_trine']     = array('field_name' => 'natal_moon_neptune_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_pluto_trine']       = array('field_name' => 'natal_moon_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_nnode_trine']       = array('field_name' => 'natal_moon_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_asc_trine']         = array('field_name' => 'natal_moon_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_venus_trine']    = array('field_name' => 'natal_mercury_venus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_mars_trine']     = array('field_name' => 'natal_mercury_mars_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_jupiter_trine']  = array('field_name' => 'natal_mercury_jupiter_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_saturn_trine']   = array('field_name' => 'natal_mercury_saturn_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_uranus_trine']   = array('field_name' => 'natal_mercury_uranus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_neptune_trine']  = array('field_name' => 'natal_mercury_neptune_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_pluto_trine']    = array('field_name' => 'natal_mercury_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_nnode_trine']    = array('field_name' => 'natal_mercury_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_asc_trine']      = array('field_name' => 'natal_mercury_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_mars_trine']       = array('field_name' => 'natal_venus_mars_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_jupiter_trine']    = array('field_name' => 'natal_venus_jupiter_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_saturn_trine']     = array('field_name' => 'natal_venus_saturn_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_uranus_trine']     = array('field_name' => 'natal_venus_uranus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_neptune_trine']    = array('field_name' => 'natal_venus_neptune_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_pluto_trine']      = array('field_name' => 'natal_venus_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_nnode_trine']      = array('field_name' => 'natal_venus_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_asc_trine']        = array('field_name' => 'natal_venus_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_jupiter_trine']     = array('field_name' => 'natal_mars_jupiter_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_saturn_trine']      = array('field_name' => 'natal_mars_saturn_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_uranus_trine']      = array('field_name' => 'natal_mars_uranus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_neptune_trine']     = array('field_name' => 'natal_mars_neptune_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_pluto_trine']       = array('field_name' => 'natal_mars_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_nnode_trine']       = array('field_name' => 'natal_mars_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_asc_trine']         = array('field_name' => 'natal_mars_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_saturn_trine']   = array('field_name' => 'natal_jupiter_saturn_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_uranus_trine']   = array('field_name' => 'natal_jupiter_uranus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_neptune_trine']  = array('field_name' => 'natal_jupiter_neptune_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_pluto_trine']    = array('field_name' => 'natal_jupiter_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_nnode_trine']    = array('field_name' => 'natal_jupiter_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_asc_trine']      = array('field_name' => 'natal_jupiter_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_uranus_trine']    = array('field_name' => 'natal_saturn_uranus_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_neptune_trine']   = array('field_name' => 'natal_saturn_neptune_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_pluto_trine']     = array('field_name' => 'natal_saturn_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_nnode_trine']     = array('field_name' => 'natal_saturn_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_asc_trine']       = array('field_name' => 'natal_saturn_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_neptune_trine']   = array('field_name' => 'natal_uranus_neptune_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_pluto_trine']     = array('field_name' => 'natal_uranus_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_nnode_trine']     = array('field_name' => 'natal_uranus_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_asc_trine']       = array('field_name' => 'natal_uranus_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_pluto_trine']    = array('field_name' => 'natal_neptune_pluto_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_nnode_trine']    = array('field_name' => 'natal_neptune_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_asc_trine']      = array('field_name' => 'natal_neptune_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_nnode_trine']      = array('field_name' => 'natal_pluto_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_asc_trine']        = array('field_name' => 'natal_pluto_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_trine']        = array('field_name' => 'natal_asc_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+
+// OPPOSITE
+	$fields['natal_sun_moon_opposite']         = array('field_name' => 'natal_sun_moon_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mercury_opposite']      = array('field_name' => 'natal_sun_mercury_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_venus_opposite']        = array('field_name' => 'natal_sun_venus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_mars_opposite']         = array('field_name' => 'natal_sun_mars_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_jupiter_opposite']      = array('field_name' => 'natal_sun_jupiter_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_saturn_opposite']       = array('field_name' => 'natal_sun_saturn_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_uranus_opposite']       = array('field_name' => 'natal_sun_uranus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_neptune_opposite']      = array('field_name' => 'natal_sun_neptune_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_pluto_opposite']        = array('field_name' => 'natal_sun_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_nnode_opposite']        = array('field_name' => 'natal_sun_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_sun_asc_opposite']          = array('field_name' => 'natal_sun_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mercury_opposite']     = array('field_name' => 'natal_moon_mercury_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_venus_opposite']       = array('field_name' => 'natal_moon_venus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_mars_opposite']        = array('field_name' => 'natal_moon_mars_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_jupiter_opposite']     = array('field_name' => 'natal_moon_jupiter_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_saturn_opposite']      = array('field_name' => 'natal_moon_saturn_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_uranus_opposite']      = array('field_name' => 'natal_moon_uranus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_neptune_opposite']     = array('field_name' => 'natal_moon_neptune_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_pluto_opposite']       = array('field_name' => 'natal_moon_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_nnode_opposite']       = array('field_name' => 'natal_moon_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_moon_asc_opposite']         = array('field_name' => 'natal_moon_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_venus_opposite']    = array('field_name' => 'natal_mercury_venus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_mars_opposite']     = array('field_name' => 'natal_mercury_mars_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_jupiter_opposite']  = array('field_name' => 'natal_mercury_jupiter_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_saturn_opposite']   = array('field_name' => 'natal_mercury_saturn_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_uranus_opposite']   = array('field_name' => 'natal_mercury_uranus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_neptune_opposite']  = array('field_name' => 'natal_mercury_neptune_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_pluto_opposite']    = array('field_name' => 'natal_mercury_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_nnode_opposite']    = array('field_name' => 'natal_mercury_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mercury_asc_opposite']      = array('field_name' => 'natal_mercury_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_mars_opposite']       = array('field_name' => 'natal_venus_mars_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_jupiter_opposite']    = array('field_name' => 'natal_venus_jupiter_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_saturn_opposite']     = array('field_name' => 'natal_venus_saturn_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_uranus_opposite']     = array('field_name' => 'natal_venus_uranus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_neptune_opposite']    = array('field_name' => 'natal_venus_neptune_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_pluto_opposite']      = array('field_name' => 'natal_venus_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_nnode_opposite']      = array('field_name' => 'natal_venus_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_venus_asc_opposite']        = array('field_name' => 'natal_venus_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_jupiter_opposite']     = array('field_name' => 'natal_mars_jupiter_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_saturn_opposite']      = array('field_name' => 'natal_mars_saturn_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_uranus_opposite']      = array('field_name' => 'natal_mars_uranus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_neptune_opposite']     = array('field_name' => 'natal_mars_neptune_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_pluto_opposite']       = array('field_name' => 'natal_mars_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_nnode_opposite']       = array('field_name' => 'natal_mars_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_mars_asc_opposite']         = array('field_name' => 'natal_mars_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_saturn_opposite']   = array('field_name' => 'natal_jupiter_saturn_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_uranus_opposite']   = array('field_name' => 'natal_jupiter_uranus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_neptune_opposite']  = array('field_name' => 'natal_jupiter_neptune_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_pluto_opposite']    = array('field_name' => 'natal_jupiter_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_nnode_opposite']    = array('field_name' => 'natal_jupiter_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_jupiter_asc_opposite']      = array('field_name' => 'natal_jupiter_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_uranus_opposite']    = array('field_name' => 'natal_saturn_uranus_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_neptune_opposite']   = array('field_name' => 'natal_saturn_neptune_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_pluto_opposite']     = array('field_name' => 'natal_saturn_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_nnode_opposite']     = array('field_name' => 'natal_saturn_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_saturn_asc_opposite']       = array('field_name' => 'natal_saturn_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_neptune_opposite']   = array('field_name' => 'natal_uranus_neptune_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_pluto_opposite']     = array('field_name' => 'natal_uranus_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_nnode_opposite']     = array('field_name' => 'natal_uranus_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_uranus_asc_opposite']       = array('field_name' => 'natal_uranus_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_pluto_opposite']    = array('field_name' => 'natal_neptune_pluto_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_nnode_opposite']    = array('field_name' => 'natal_neptune_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_neptune_asc_opposite']      = array('field_name' => 'natal_neptune_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_nnode_opposite']      = array('field_name' => 'natal_pluto_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_pluto_asc_opposite']        = array('field_name' => 'natal_pluto_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_opposite']        = array('field_name' => 'natal_asc_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+
+	foreach ($fields as $field) {
+		field_create_field($field);
+	}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Create All Field Instances for the Natal Content-type form
+///////////////////////////////////////////////////////////////////////////////////////////////////
+	$instances = array(); // Start by creating an empty array for the instances
+
+	// Create field i$nstances for PERSONAL INFO 
+	$instances['natal_pub_pri'] = array(
+		'field_name'  => 'natal_pub_pri',
+		'label'       => $t('Public/Private'),
+		'description' => $t('Public = unrestricted access, Private = restricted access'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_name_last'] = array(
+		'field_name'  => 'natal_name_last',
+		'label'       => $t('Last name'),
+		'description' => $t('The individual\'s last name - first letter capitalized, text only'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_name_first'] = array(
+		'field_name'  => 'natal_name_first',
+		'label'       => $t('First name'),
+		'description' => $t('The individual\'s first name - first leter capitalized, text only'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_birth_info'] = array(
+		'field_name'  => 'natal_birth_info',
+		'label'       => $t('Birth info'),
+		'description' => $t('The individual\'s birth info'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_birth_city'] = array(
+		'field_name'  => 'natal_birth_city',
+		'label'       => $t('Birth City'),
+		'description' => $t('The individual\'s birth city - first leter capitalized, text only'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_birth_state'] = array(
+		'field_name'  => 'natal_birth_state',
+		'label'       => $t('Birth State'),
+		'description' => $t('The individual\'s birth state - 2 letter capitalized state code'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_birth_country'] = array(
+		'field_name'  => 'natal_birth_country',
+		'label'       => $t('Birth Country'),
+		'description' => $t('The individual\'s birth country.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+
+// Create field $instances for ALL PLANETS
+// =================================================================================== SUN
+	$instances['natal_sun_sign'] = array(
+		'field_name'  => 'natal_sun_sign',
+		'label'       => $t('Sun sign'),
+		'description' => $t('Sun sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_sun_degree'] = array(
+		'field_name'  => 'natal_sun_degree',
+		'label'       => $t('Sun degree'),
+		'description' => $t('Sun degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_sun_minute'] = array(
+		'field_name'  => 'natal_sun_minute',
+		'label'       => $t('Sun minute'),
+		'description' => $t('Sun minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== MOON
+	$instances['natal_moon_sign'] = array(
+		'field_name'  => 'natal_moon_sign',
+		'label'       => $t('Moon sign'),
+		'description' => $t('Moon sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_moon_degree'] = array(
+		'field_name'  => 'natal_moon_degree',
+		'label'       => $t('Moon degree'),
+		'description' => $t('Moon degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_moon_minute'] = array(
+		'field_name'  => 'natal_moon_minute',
+		'label'       => $t('Moon minute'),
+		'description' => $t('Moon minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== MERCURY
+	$instances['natal_mercury_sign'] = array(
+		'field_name'  => 'natal_mercury_sign',
+		'label'       => $t('Mercury sign'),
+		'description' => $t('Mercury sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_mercury_degree'] = array(
+		'field_name'  => 'natal_mercury_degree',
+		'label'       => $t('Mercury degree'),
+		'description' => $t('Mercury degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_mercury_minute'] = array(
+		'field_name'  => 'natal_mercury_minute',
+		'label'       => $t('Mercury minute'),
+		'description' => $t('Mercury minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== VENUS
+	$instances['natal_venus_sign'] = array(
+		'field_name'  => 'natal_venus_sign',
+		'label'       => $t('Venus sign'),
+		'description' => $t('Venus sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_venus_degree'] = array(
+		'field_name'  => 'natal_venus_degree',
+		'label'       => $t('Venus degree'),
+		'description' => $t('Venus degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_venus_minute'] = array(
+		'field_name'  => 'natal_venus_minute',
+		'label'       => $t('Venus minute'),
+		'description' => $t('Venus minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== MARS
+	$instances['natal_mars_sign'] = array(
+		'field_name'  => 'natal_mars_sign',
+		'label'       => $t('Mars sign'),
+		'description' => $t('Mars sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_mars_degree'] = array(
+		'field_name'  => 'natal_mars_degree',
+		'label'       => $t('Mars degree'),
+		'description' => $t('Mars degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_mars_minute'] = array(
+		'field_name'  => 'natal_mars_minute',
+		'label'       => $t('Mars minute'),
+		'description' => $t('Mars minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== JUPITER
+	$instances['natal_jupiter_sign'] = array(
+		'field_name'  => 'natal_jupiter_sign',
+		'label'       => $t('Jupiter sign'),
+		'description' => $t('Jupiter sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_jupiter_degree'] = array(
+		'field_name'  => 'natal_jupiter_degree',
+		'label'       => $t('Jupiter degree'),
+		'description' => $t('The Jupiter degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_jupiter_minute'] = array(
+		'field_name'  => 'natal_jupiter_minute',
+		'label'       => $t('Jupiter minute'),
+		'description' => $t('Jupiter minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== SATURN
+	$instances['natal_saturn_sign'] = array(
+		'field_name'  => 'natal_saturn_sign',
+		'label'       => $t('Saturn sign'),
+		'description' => $t('Saturn sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_saturn_degree'] = array(
+		'field_name'  => 'natal_saturn_degree',
+		'label'       => $t('Saturn degree'),
+		'description' => $t('Saturn degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_saturn_minute'] = array(
+		'field_name'  => 'natal_saturn_minute',
+		'label'       => $t('Saturn minute'),
+		'description' => $t('The Saturn minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== URANUS
+	$instances['natal_uranus_sign'] = array(
+		'field_name'  => 'natal_uranus_sign',
+		'label'       => $t('Uranus sign'),
+		'description' => $t('Uranus sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_uranus_degree'] = array(
+		'field_name'  => 'natal_uranus_degree',
+		'label'       => $t('Uranus degree'),
+		'description' => $t('The Uranus degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_uranus_minute'] = array(
+		'field_name'  => 'natal_uranus_minute',
+		'label'       => $t('Uranus minute'),
+		'description' => $t('The Uranus minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== NEPTUNE
+	$instances['natal_neptune_sign'] = array(
+		'field_name'  => 'natal_neptune_sign',
+		'label'       => $t('Neptune sign'),
+		'description' => $t('The Neptune sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_neptune_degree'] = array(
+		'field_name'  => 'natal_neptune_degree',
+		'label'       => $t('Neptune degree'),
+		'description' => $t('The Neptune degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_neptune_minute'] = array(
+		'field_name'  => 'natal_neptune_minute',
+		'label'       => $t('Neptune minute'),
+		'description' => $t('The Neptune minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== PLUTO
+	$instances['natal_pluto_sign'] = array(
+		'field_name'  => 'natal_pluto_sign',
+		'label'       => $t('Pluto sign'),
+		'description' => $t('The Pluto sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_pluto_degree'] = array(
+		'field_name'  => 'natal_pluto_degree',
+		'label'       => $t('Pluto degree'),
+		'description' => $t('The Pluto degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_pluto_minute'] = array(
+		'field_name'  => 'natal_pluto_minute',
+		'label'       => $t('Pluto minute'),
+		'description' => $t('The Pluto minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== NORTH NODE
+	$instances['natal_nnode_sign'] = array(
+		'field_name'  => 'natal_nnode_sign',
+		'label'       => $t('North Node sign'),
+		'description' => $t('The North Node sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_nnode_degree'] = array(
+		'field_name'  => 'natal_nnode_degree',
+		'label'       => $t('North Node degree'),
+		'description' => $t('The North Node degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_nnode_minute'] = array(
+		'field_name'  => 'natal_nnode_minute',
+		'label'       => $t('North Node minute'),
+		'description' => $t('The North Node minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+
+// Create field $instances for ALL CUSPS 
+// =================================================================================== 1ST HOUSE CUSP (ASC)
+	$instances['natal_asc_sign'] = array(
+		'field_name'  => 'natal_asc_sign',
+		'label'       => $t('Ascendent sign'),
+		'description' => $t('Ascendent sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_asc_degree'] = array(
+		'field_name'  => 'natal_asc_degree',
+		'label'       => $t('Ascendent degree'),
+		'description' => $t('Ascendent degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_asc_minute'] = array(
+		'field_name'  => 'natal_asc_minute',
+		'label'       => $t('Ascendent minute'),
+		'description' => $t('Ascendent minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== 2ND HOUSE CUSP
+	$instances['natal_cusp02_sign'] = array(
+		'field_name'  => 'natal_cusp02_sign',
+		'label'       => $t('2nd House Cusp sign'),
+		'description' => $t('2nd House Cusp sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_cusp02_degree'] = array(
+		'field_name'  => 'natal_cusp02_degree',
+		'label'       => $t('2nd House Cusp degree'),
+		'description' => $t('2nd House Cusp degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_cusp02_minute'] = array(
+		'field_name'  => 'natal_cusp02_minute',
+		'label'       => $t('2nd House Cusp minute'),
+		'description' => $t('2nd House Cusp minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== 3RD HOUSE CUSP
+	$instances['natal_cusp03_sign'] = array(
+		'field_name'  => 'natal_cusp03_sign',
+		'label'       => $t('3rd House Cusp sign'),
+		'description' => $t('3rd House Cusp sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_cusp03_degree'] = array(
+		'field_name'  => 'natal_cusp03_degree',
+		'label'       => $t('3rd House Cusp degree'),
+		'description' => $t('3rd House Cusp degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_cusp03_minute'] = array(
+		'field_name'  => 'natal_cusp03_minute',
+		'label'       => $t('3rd House Cusp minute'),
+		'description' => $t('3rd House Cusp minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== 4TH HOUSE CUSP (MC)
+	$instances['natal_mc_sign'] = array(
+		'field_name'  => 'natal_mc_sign',
+		'label'       => $t('Mid-Heaven sign'),
+		'description' => $t('Mid-Heaven Cusp sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_mc_degree'] = array(
+		'field_name'  => 'natal_mc_degree',
+		'label'       => $t('Mid-Heaven Cusp degree'),
+		'description' => $t('Mid-Heaven Cusp degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_mc_minute'] = array(
+		'field_name'  => 'natal_mc_minute',
+		'label'       => $t('Mid-Heaven Cusp minute'),
+		'description' => $t('Mid-Heaven Cusp minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== 5TH HOUSE CUSP
+	$instances['natal_cusp05_sign'] = array(
+		'field_name'  => 'natal_cusp05_sign',
+		'label'       => $t('5th House Cusp sign'),
+		'description' => $t('5th House Cusp sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_cusp05_degree'] = array(
+		'field_name'  => 'natal_cusp05_degree',
+		'label'       => $t('5th House Cusp degree'),
+		'description' => $t('5th House Cusp degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_cusp05_minute'] = array(
+		'field_name'  => 'natal_cusp05_minute',
+		'label'       => $t('5th House Cusp minute'),
+		'description' => $t('5th House Cusp minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+// =================================================================================== 6TH HOUSE CUSP
+	$instances['natal_cusp06_sign'] = array(
+		'field_name'  => 'natal_cusp06_sign',
+		'label'       => $t('6th House Cusp sign'),
+		'description' => $t('6th House Cusp sign.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_cusp06_degree'] = array(
+		'field_name'  => 'natal_cusp06_degree',
+		'label'       => $t('6th House Cusp degree'),
+		'description' => $t('6th House Cusp degree.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+	$instances['natal_cusp06_minute'] = array(
+		'field_name'  => 'natal_cusp06_minute',
+		'label'       => $t('6th House Cusp minute'),
+		'description' => $t('6th House Cusp minute.'),
+		'widget'      => array('type' => 'text_textfield',),
+		'required'    => TRUE,
+		'settings'    => array('text_processing' => 0,),
+		'display'     => array('default' => array('label' => 'inline',),),
+	);
+
+	foreach($instances as $instance) {
+		$instance['entity_type'] = 'node';
+		$instance['bundle'] = 'natal';
+		field_create_instance($instance);
+	}
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function natal_uninstall() {
+	// Delete variables created with hook_install. (takes no parameters)
+	variable_del('natal_pub_pri');
+	variable_del('natal_name_first');   variable_del('natal_name_last');
+	variable_del('natal_birth_info');   variable_del('natal_birth_city');     variable_del('natal_birth_state');
+	
+	variable_del('natal_sun_sign');     variable_del('natal_sun_degree');     variable_del('natal_sun_minute');
+	variable_del('natal_moon_sign');    variable_del('natal_moon_degree');    variable_del('natal_moon_minute');
+	variable_del('natal_mercury_sign'); variable_del('natal_mercury_degree'); variable_del('natal_mercury_minute');
+	variable_del('natal_venus_sign');   variable_del('natal_venus_degree');   variable_del('natal_venus_minute');
+	variable_del('natal_mars_sign');    variable_del('natal_mars_degree');    variable_del('natal_mars_minute');
+	variable_del('natal_jupiter_sign'); variable_del('natal_jupiter_degree'); variable_del('natal_jupiter_minute');
+	variable_del('natal_saturn_sign');  variable_del('natal_saturn_degree');  variable_del('natal_saturn_minute');
+	variable_del('natal_uranus_sign');  variable_del('natal_uranus_degree');  variable_del('natal_uranus_minute');
+	variable_del('natal_neptune_sign'); variable_del('natal_neptune_degree'); variable_del('natal_neptune_minute');
+	variable_del('natal_pluto_sign');   variable_del('natal_pluto_degree');   variable_del('natal_pluto_minute');
+	variable_del('natal_nnode_sign');   variable_del('natal_nnode_degree');   variable_del('natal_nnode_minute');
+
+	variable_del('natal_asc_sign');     variable_del('natal_asc_degree');     variable_del('natal_asc_minute');
+	variable_del('natal_cusp02_sign');  variable_del('natal_cusp02_degree');  variable_del('natal_cusp02_minute');
+	variable_del('natal_cusp03_sign');  variable_del('natal_cusp03_degree');  variable_del('natal_cusp03_minute');
+	variable_del('natal_mc_sign');      variable_del('natal_mc_degree');      variable_del('natal_mc_minute');
+	variable_del('natal_cusp05_sign');  variable_del('natal_cusp05_degree');  variable_del('natal_cusp05_minute');
+	variable_del('natal_cusp06_sign');  variable_del('natal_cusp06_degree');  variable_del('natal_cusp06_minute');
+
+// variable_del for CONJUNCT aspects
+variable_del('natal_sun_moon_conjunct');
+variable_del('natal_sun_mercury_conjunct');
+variable_del('natal_sun_venus_conjunct');
+variable_del('natal_sun_mars_conjunct');
+variable_del('natal_sun_jupiter_conjunct');
+variable_del('natal_sun_saturn_conjunct');
+variable_del('natal_sun_uranus_conjunct');
+variable_del('natal_sun_neptune_conjunct');
+variable_del('natal_sun_pluto_conjunct');
+variable_del('natal_sun_asc_conjunct');
+variable_del('natal_sun_nnode_conjunct');
+variable_del('natal_moon_mercury_conjunct');
+variable_del('natal_moon_venus_conjunct');
+variable_del('natal_moon_mars_conjunct');
+variable_del('natal_moon_jupiter_conjunct');
+variable_del('natal_moon_saturn_conjunct');
+variable_del('natal_moon_uranus_conjunct');
+variable_del('natal_moon_neptune_conjunct');
+variable_del('natal_moon_pluto_conjunct');
+variable_del('natal_moon_asc_conjunct');
+variable_del('natal_moon_nnode_conjunct');
+variable_del('natal_mercury_venus_conjunct');
+variable_del('natal_mercury_mars_conjunct');
+variable_del('natal_mercury_jupiter_conjunct');
+variable_del('natal_mercury_saturn_conjunct');
+variable_del('natal_mercury_uranus_conjunct');
+variable_del('natal_mercury_neptune_conjunct');
+variable_del('natal_mercury_pluto_conjunct');
+variable_del('natal_mercury_asc_conjunct');
+variable_del('natal_mercury_nnode_conjunct');
+variable_del('natal_venus_mars_conjunct');
+variable_del('natal_venus_jupiter_conjunct');
+variable_del('natal_venus_saturn_conjunct');
+variable_del('natal_venus_uranus_conjunct');
+variable_del('natal_venus_neptune_conjunct');
+variable_del('natal_venus_pluto_conjunct');
+variable_del('natal_venus_asc_conjunct');
+variable_del('natal_venus_nnode_conjunct');
+variable_del('natal_mars_jupiter_conjunct');
+variable_del('natal_mars_saturn_conjunct');
+variable_del('natal_mars_uranus_conjunct');
+variable_del('natal_mars_neptune_conjunct');
+variable_del('natal_mars_pluto_conjunct');
+variable_del('natal_mars_asc_conjunct');
+variable_del('natal_mars_nnode_conjunct');
+variable_del('natal_jupiter_saturn_conjunct');
+variable_del('natal_jupiter_uranus_conjunct');
+variable_del('natal_jupiter_neptune_conjunct');
+variable_del('natal_jupiter_pluto_conjunct');
+variable_del('natal_jupiter_asc_conjunct');
+variable_del('natal_jupiter_nnode_conjunct');
+variable_del('natal_saturn_uranus_conjunct');
+variable_del('natal_saturn_neptune_conjunct');
+variable_del('natal_saturn_pluto_conjunct');
+variable_del('natal_saturn_asc_conjunct');
+variable_del('natal_saturn_nnode_conjunct');
+variable_del('natal_uranus_neptune_conjunct');
+variable_del('natal_uranus_pluto_conjunct');
+variable_del('natal_uranus_asc_conjunct');
+variable_del('natal_uranus_nnode_conjunct');
+variable_del('natal_neptune_pluto_conjunct');
+variable_del('natal_neptune_asc_conjunct');
+variable_del('natal_neptune_nnode_conjunct');
+variable_del('natal_pluto_asc_conjunct');
+variable_del('natal_pluto_nnode_conjunct');
+variable_del('natal_asc_nnode_conjunct');
+
+// variable_del for SEXTILE aspects
+variable_del('natal_sun_moon_sextile');
+variable_del('natal_sun_mercury_sextile');
+variable_del('natal_sun_venus_sextile');
+variable_del('natal_sun_mars_sextile');
+variable_del('natal_sun_jupiter_sextile');
+variable_del('natal_sun_saturn_sextile');
+variable_del('natal_sun_uranus_sextile');
+variable_del('natal_sun_neptune_sextile');
+variable_del('natal_sun_pluto_sextile');
+variable_del('natal_sun_asc_sextile');
+variable_del('natal_sun_nnode_sextile');
+variable_del('natal_moon_mercury_sextile');
+variable_del('natal_moon_venus_sextile');
+variable_del('natal_moon_mars_sextile');
+variable_del('natal_moon_jupiter_sextile');
+variable_del('natal_moon_saturn_sextile');
+variable_del('natal_moon_uranus_sextile');
+variable_del('natal_moon_neptune_sextile');
+variable_del('natal_moon_pluto_sextile');
+variable_del('natal_moon_asc_sextile');
+variable_del('natal_moon_nnode_sextile');
+variable_del('natal_mercury_venus_sextile');
+variable_del('natal_mercury_mars_sextile');
+variable_del('natal_mercury_jupiter_sextile');
+variable_del('natal_mercury_saturn_sextile');
+variable_del('natal_mercury_uranus_sextile');
+variable_del('natal_mercury_neptune_sextile');
+variable_del('natal_mercury_pluto_sextile');
+variable_del('natal_mercury_asc_sextile');
+variable_del('natal_mercury_nnode_sextile');
+variable_del('natal_venus_mars_sextile');
+variable_del('natal_venus_jupiter_sextile');
+variable_del('natal_venus_saturn_sextile');
+variable_del('natal_venus_uranus_sextile');
+variable_del('natal_venus_neptune_sextile');
+variable_del('natal_venus_pluto_sextile');
+variable_del('natal_venus_asc_sextile');
+variable_del('natal_venus_nnode_sextile');
+variable_del('natal_mars_jupiter_sextile');
+variable_del('natal_mars_saturn_sextile');
+variable_del('natal_mars_uranus_sextile');
+variable_del('natal_mars_neptune_sextile');
+variable_del('natal_mars_pluto_sextile');
+variable_del('natal_mars_asc_sextile');
+variable_del('natal_mars_nnode_sextile');
+variable_del('natal_jupiter_saturn_sextile');
+variable_del('natal_jupiter_uranus_sextile');
+variable_del('natal_jupiter_neptune_sextile');
+variable_del('natal_jupiter_pluto_sextile');
+variable_del('natal_jupiter_asc_sextile');
+variable_del('natal_jupiter_nnode_sextile');
+variable_del('natal_saturn_uranus_sextile');
+variable_del('natal_saturn_neptune_sextile');
+variable_del('natal_saturn_pluto_sextile');
+variable_del('natal_saturn_asc_sextile');
+variable_del('natal_saturn_nnode_sextile');
+variable_del('natal_uranus_neptune_sextile');
+variable_del('natal_uranus_pluto_sextile');
+variable_del('natal_uranus_asc_sextile');
+variable_del('natal_uranus_nnode_sextile');
+variable_del('natal_neptune_pluto_sextile');
+variable_del('natal_neptune_asc_sextile');
+variable_del('natal_neptune_nnode_sextile');
+variable_del('natal_pluto_asc_sextile');
+variable_del('natal_pluto_nnode_sextile');
+variable_del('natal_asc_nnode_sextile');
+
+// variable_del for SQUARE aspects
+variable_del('natal_sun_moon_square');
+variable_del('natal_sun_mercury_square');
+variable_del('natal_sun_venus_square');
+variable_del('natal_sun_mars_square');
+variable_del('natal_sun_jupiter_square');
+variable_del('natal_sun_saturn_square');
+variable_del('natal_sun_uranus_square');
+variable_del('natal_sun_neptune_square');
+variable_del('natal_sun_pluto_square');
+variable_del('natal_sun_asc_square');
+variable_del('natal_sun_nnode_square');
+variable_del('natal_moon_mercury_square');
+variable_del('natal_moon_venus_square');
+variable_del('natal_moon_mars_square');
+variable_del('natal_moon_jupiter_square');
+variable_del('natal_moon_saturn_square');
+variable_del('natal_moon_uranus_square');
+variable_del('natal_moon_neptune_square');
+variable_del('natal_moon_pluto_square');
+variable_del('natal_moon_asc_square');
+variable_del('natal_moon_nnode_square');
+variable_del('natal_mercury_venus_square');
+variable_del('natal_mercury_mars_square');
+variable_del('natal_mercury_jupiter_square');
+variable_del('natal_mercury_saturn_square');
+variable_del('natal_mercury_uranus_square');
+variable_del('natal_mercury_neptune_square');
+variable_del('natal_mercury_pluto_square');
+variable_del('natal_mercury_asc_square');
+variable_del('natal_mercury_nnode_square');
+variable_del('natal_venus_mars_square');
+variable_del('natal_venus_jupiter_square');
+variable_del('natal_venus_saturn_square');
+variable_del('natal_venus_uranus_square');
+variable_del('natal_venus_neptune_square');
+variable_del('natal_venus_pluto_square');
+variable_del('natal_venus_asc_square');
+variable_del('natal_venus_nnode_square');
+variable_del('natal_mars_jupiter_square');
+variable_del('natal_mars_saturn_square');
+variable_del('natal_mars_uranus_square');
+variable_del('natal_mars_neptune_square');
+variable_del('natal_mars_pluto_square');
+variable_del('natal_mars_asc_square');
+variable_del('natal_mars_nnode_square');
+variable_del('natal_jupiter_saturn_square');
+variable_del('natal_jupiter_uranus_square');
+variable_del('natal_jupiter_neptune_square');
+variable_del('natal_jupiter_pluto_square');
+variable_del('natal_jupiter_asc_square');
+variable_del('natal_jupiter_nnode_square');
+variable_del('natal_saturn_uranus_square');
+variable_del('natal_saturn_neptune_square');
+variable_del('natal_saturn_pluto_square');
+variable_del('natal_saturn_asc_square');
+variable_del('natal_saturn_nnode_square');
+variable_del('natal_uranus_neptune_square');
+variable_del('natal_uranus_pluto_square');
+variable_del('natal_uranus_asc_square');
+variable_del('natal_uranus_nnode_square');
+variable_del('natal_neptune_pluto_square');
+variable_del('natal_neptune_asc_square');
+variable_del('natal_neptune_nnode_square');
+variable_del('natal_pluto_asc_square');
+variable_del('natal_pluto_nnode_square');
+variable_del('natal_asc_nnode_square');
+
+// variable_del for TRINE aspects
+variable_del('natal_sun_moon_trine');
+variable_del('natal_sun_mercury_trine');
+variable_del('natal_sun_venus_trine');
+variable_del('natal_sun_mars_trine');
+variable_del('natal_sun_jupiter_trine');
+variable_del('natal_sun_saturn_trine');
+variable_del('natal_sun_uranus_trine');
+variable_del('natal_sun_neptune_trine');
+variable_del('natal_sun_pluto_trine');
+variable_del('natal_sun_asc_trine');
+variable_del('natal_sun_nnode_trine');
+variable_del('natal_moon_mercury_trine');
+variable_del('natal_moon_venus_trine');
+variable_del('natal_moon_mars_trine');
+variable_del('natal_moon_jupiter_trine');
+variable_del('natal_moon_saturn_trine');
+variable_del('natal_moon_uranus_trine');
+variable_del('natal_moon_neptune_trine');
+variable_del('natal_moon_pluto_trine');
+variable_del('natal_moon_asc_trine');
+variable_del('natal_moon_nnode_trine');
+variable_del('natal_mercury_venus_trine');
+variable_del('natal_mercury_mars_trine');
+variable_del('natal_mercury_jupiter_trine');
+variable_del('natal_mercury_saturn_trine');
+variable_del('natal_mercury_uranus_trine');
+variable_del('natal_mercury_neptune_trine');
+variable_del('natal_mercury_pluto_trine');
+variable_del('natal_mercury_asc_trine');
+variable_del('natal_mercury_nnode_trine');
+variable_del('natal_venus_mars_trine');
+variable_del('natal_venus_jupiter_trine');
+variable_del('natal_venus_saturn_trine');
+variable_del('natal_venus_uranus_trine');
+variable_del('natal_venus_neptune_trine');
+variable_del('natal_venus_pluto_trine');
+variable_del('natal_venus_asc_trine');
+variable_del('natal_venus_nnode_trine');
+variable_del('natal_mars_jupiter_trine');
+variable_del('natal_mars_saturn_trine');
+variable_del('natal_mars_uranus_trine');
+variable_del('natal_mars_neptune_trine');
+variable_del('natal_mars_pluto_trine');
+variable_del('natal_mars_asc_trine');
+variable_del('natal_mars_nnode_trine');
+variable_del('natal_jupiter_saturn_trine');
+variable_del('natal_jupiter_uranus_trine');
+variable_del('natal_jupiter_neptune_trine');
+variable_del('natal_jupiter_pluto_trine');
+variable_del('natal_jupiter_asc_trine');
+variable_del('natal_jupiter_nnode_trine');
+variable_del('natal_saturn_uranus_trine');
+variable_del('natal_saturn_neptune_trine');
+variable_del('natal_saturn_pluto_trine');
+variable_del('natal_saturn_asc_trine');
+variable_del('natal_saturn_nnode_trine');
+variable_del('natal_uranus_neptune_trine');
+variable_del('natal_uranus_pluto_trine');
+variable_del('natal_uranus_asc_trine');
+variable_del('natal_uranus_nnode_trine');
+variable_del('natal_neptune_pluto_trine');
+variable_del('natal_neptune_asc_trine');
+variable_del('natal_neptune_nnode_trine');
+variable_del('natal_pluto_asc_trine');
+variable_del('natal_pluto_nnode_trine');
+variable_del('natal_asc_nnode_trine');
+
+// variable_del for OPPOSITE aspects
+variable_del('natal_sun_moon_opposite');
+variable_del('natal_sun_mercury_opposite');
+variable_del('natal_sun_venus_opposite');
+variable_del('natal_sun_mars_opposite');
+variable_del('natal_sun_jupiter_opposite');
+variable_del('natal_sun_saturn_opposite');
+variable_del('natal_sun_uranus_opposite');
+variable_del('natal_sun_neptune_opposite');
+variable_del('natal_sun_pluto_opposite');
+variable_del('natal_sun_asc_opposite');
+variable_del('natal_sun_nnode_opposite');
+variable_del('natal_moon_mercury_opposite');
+variable_del('natal_moon_venus_opposite');
+variable_del('natal_moon_mars_opposite');
+variable_del('natal_moon_jupiter_opposite');
+variable_del('natal_moon_saturn_opposite');
+variable_del('natal_moon_uranus_opposite');
+variable_del('natal_moon_neptune_opposite');
+variable_del('natal_moon_pluto_opposite');
+variable_del('natal_moon_asc_opposite');
+variable_del('natal_moon_nnode_opposite');
+variable_del('natal_mercury_venus_opposite');
+variable_del('natal_mercury_mars_opposite');
+variable_del('natal_mercury_jupiter_opposite');
+variable_del('natal_mercury_saturn_opposite');
+variable_del('natal_mercury_uranus_opposite');
+variable_del('natal_mercury_neptune_opposite');
+variable_del('natal_mercury_pluto_opposite');
+variable_del('natal_mercury_asc_opposite');
+variable_del('natal_mercury_nnode_opposite');
+variable_del('natal_venus_mars_opposite');
+variable_del('natal_venus_jupiter_opposite');
+variable_del('natal_venus_saturn_opposite');
+variable_del('natal_venus_uranus_opposite');
+variable_del('natal_venus_neptune_opposite');
+variable_del('natal_venus_pluto_opposite');
+variable_del('natal_venus_asc_opposite');
+variable_del('natal_venus_nnode_opposite');
+variable_del('natal_mars_jupiter_opposite');
+variable_del('natal_mars_saturn_opposite');
+variable_del('natal_mars_uranus_opposite');
+variable_del('natal_mars_neptune_opposite');
+variable_del('natal_mars_pluto_opposite');
+variable_del('natal_mars_asc_opposite');
+variable_del('natal_mars_nnode_opposite');
+variable_del('natal_jupiter_saturn_opposite');
+variable_del('natal_jupiter_uranus_opposite');
+variable_del('natal_jupiter_neptune_opposite');
+variable_del('natal_jupiter_pluto_opposite');
+variable_del('natal_jupiter_asc_opposite');
+variable_del('natal_jupiter_nnode_opposite');
+variable_del('natal_saturn_uranus_opposite');
+variable_del('natal_saturn_neptune_opposite');
+variable_del('natal_saturn_pluto_opposite');
+variable_del('natal_saturn_asc_opposite');
+variable_del('natal_saturn_nnode_opposite');
+variable_del('natal_uranus_neptune_opposite');
+variable_del('natal_uranus_pluto_opposite');
+variable_del('natal_uranus_asc_opposite');
+variable_del('natal_uranus_nnode_opposite');
+variable_del('natal_neptune_pluto_opposite');
+variable_del('natal_neptune_asc_opposite');
+variable_del('natal_neptune_nnode_opposite');
+variable_del('natal_pluto_asc_opposite');
+variable_del('natal_pluto_nnode_opposite');
+variable_del('natal_asc_nnode_opposite');
+
+	// Give user feedback.
+	$t = get_t();
+	drupal_set_message($t('Natal variables removed.'));
+
+	// Get all node IDs with natal content type.
+	$sql_query  = 'SELECT nid ';
+	$sql_query .= 'FROM {node} ';
+	$sql_query .= 'WHERE {node}.type = :type ';
+	$result = db_query($sql_query, array(':type' => 'natal'));
+
+	$nids = array();
+	foreach ($result as $row) {
+		$nids[] = $row->nid;
+	}
+
+	// Delete all natal content.
+	node_delete_multiple($nids);
+	drupal_set_message($t('Natal content removed.'));
+
+	// Remove all fields and field instances.
+	foreach (field_info_instances('node', 'natal') as $field_name => $instance) {
+		field_delete_field($field_name);
+		field_delete_instance($instance);
+	}
+	drupal_set_message($t('Natal field and field instances removed.'));
+
+	// Delete the content type.
+	node_type_delete('natal');
+	drupal_set_message($t('Natal Content Type removed.'));
+
+	// Clean up deleted fields.
+	field_purge_batch(1000);
+}

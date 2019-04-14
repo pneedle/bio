@@ -1,0 +1,81 @@
+name = Natal
+description = A content type to store natal info (all fields)
+core = 7.x
+version = 7.x-1.16-dev
+configure = admin/config/natal/manage
+package = Astrology
+
+; 7.x-2.02-dev 2017-APR-19
+; modified: home-page-daily.php (442) 
+; echo '<span class="more">' . $result . '</span><br />';  // JS INJECTOR
+; added "PlanetWatcher" to homepage
+
+; 7.x-2.01-dev 2017-APR-14
+; modified: functions.php (135-136) 
+; // echo $result . '<br />';
+; echo '<span class="more">' . $result . '</span><br />';  // JS INJECTOR
+; field_data_body
+; ///////////////////////////////////////////////////////////////////////////////
+
+; 7.x-1.16-dev 
+; modified: daily_input_form.php (daily_daily)
+; if (($aspect != NULL) && ($nid != $daily_id) && ($i != 10)) { // (daily_daily); leave out transiting nnode
+; if (($aspect != NULL) && ($nid == $daily_id) && ($numeric_angle != 0) && ($i < $j)) { // (daily_daily); omit sun tri mar & mar tri sun
+
+; 7.x-1.15-dev 
+; modified: daily_input_form.php (daily_daily)
+; if (($aspect != NULL) && ($nid == $daily_id) && ($numeric_angle != 0)) { // lists transits for today (daily_daily)
+
+; 7.x-1.14-dev 
+; modified: daily_input_form.php (daily_daily)
+; astro3/transits: removes 0 degree results for daily_daily transits
+
+; 7.x-1.13-dev    (takes about 125 seconds to load)
+; Fixed "$fields['natal_asc_nnode_conjunct']" CSSTO in natal.install
+; Fixed algorithm to calculate location of house and sign in horoscope.php
+
+; 7.x-1.12-dev    (takes about 125 seconds to load)
+; Added natal planet house info: variable_set() and $fields['natal_planet_house'] (at top of natal.install)
+
+; 7.x-1.11-dev    (takes about 90 seconds to load)
+; Added fields for natal aspect data (at bottom of horoscope.php)
+
+; 7.x-1.10-dev    (takes about 90 seconds to load)
+; Add; Create fields for OPPOSITE aspects (natal.install)
+; Add: variable_del for OPPOSITE aspects (natal.install)
+
+; 7.x-1.9-dev    (takes about 67 seconds to load)
+; Add; Create fields for TRINE aspects (natal.install)
+; Add: variable_del for TRINE aspects (natal.install)
+; Modified: "max_execution_time" from 30 to 60 seconds (etc/php.ini)
+
+; 7.x-1.8-dev    (takes about 53 seconds to load)
+; Add; Create fields for SQUARE aspects (natal.install)
+; Add: variable_del for SQUARE aspects (natal.install)
+
+; 7.x-1.7-dev    (takes about 38 seconds to load)
+; Add; Create fields for SEXTILE aspects (natal.install)
+; Add: variable_del for SEXTILE aspects (natal.install)
+
+; 7.x-1.6-dev    (takes about ___ seconds to load)
+; Create fields for CONJUNCT aspects (natal.install)
+; variable_del for CONJUNCT aspects (natal.install)
+
+; 7.x-1.5-dev    (takes about 120 seconds to load)
+; Added <br> tags to horoscope
+; Added North Node delineation to horoscope
+
+; 7.x-1.4-dev    (takes about 120 seconds to load)
+; Added fields for natal aspect data
+; natal.install => variable_set('natal_sun_moon_conjunct','')...etc (CSSTO)
+; natal.install => $fields['natal_sun_moon_conjunct']...etc (CSSTO)
+; write to db if aspect exists "natal_mercury_pluto_opposite_value" = 4.3 (else NULL)
+
+; Daily_Daily
+; 1) daily_input_form.php line 3
+; 2) example_extract_html.php line 3
+; 3) views > astro_list > filter_criteria
+; 4) search API > listing display > fields
+; 5) moon_color_html.php line 60
+; 6) 'Moon Color of the Day' block
+; 7) aspect_code.php line 21
